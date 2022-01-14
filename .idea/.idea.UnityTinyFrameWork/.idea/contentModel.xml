@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\ema-PC\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\ema-PC\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_UnityTinyFrameWork.-1915091521.00" t="ExcludeRecursive" />
+    <e p="E:\UnityProject\UnityTinyFrameWork" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Demo" t="Include">
+          <e p="Editor" t="Include">
+            <e p="Config" t="Include">
+              <e p="EditorBootstraps.cs" t="Include" />
+              <e p="EditorProviders.cs" t="Include" />
+            </e>
+            <e p="EditorMain.cs" t="Include" />
+          </e>
+          <e p="Runtime" t="Include">
+            <e p="Config" t="Include">
+              <e p="Bootstraps.cs" t="Include" />
+              <e p="Providers.cs" t="Include" />
+            </e>
+            <e p="Main.cs" t="Include" />
+          </e>
+        </e>
+        <e p="FrameWork" t="Include">
+          <e p="Editor" t="Include">
+            <e p="EditorFramework.cs" t="Include" />
+            <e p="Inspector" t="Include">
+              <e p="InspectorFramework.cs" t="Include" />
+              <e p="InspectorTool.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Runtime" t="Include">
+            <e p="Bootstrap" t="Include">
+              <e p="BootstrapProviderRegister.cs" t="Include" />
+              <e p="BootstrapTypeFinder.cs" t="Include" />
+            </e>
+            <e p="Core" t="Include">
+              <e p="CatLib" t="Include">
+                <e p="App.cs" t="Include" />
+                <e p="Application.cs" t="Include" />
+                <e p="DebugLevel.cs" t="Include" />
+                <e p="Events" t="Include">
+                  <e p="AfterBootEventArgs.cs" t="Include" />
+                  <e p="AfterInitEventArgs.cs" t="Include" />
+                  <e p="AfterTerminateEventArgs.cs" t="Include" />
+                  <e p="ApplicationEventArgs.cs" t="Include" />
+                  <e p="ApplicationEvents.cs" t="Include" />
+                  <e p="BeforeBootEventArgs.cs" t="Include" />
+                  <e p="BeforeInitEventArgs.cs" t="Include" />
+                  <e p="BeforeTerminateEventArgs.cs" t="Include" />
+                  <e p="BootingEventArgs.cs" t="Include" />
+                  <e p="InitProviderEventArgs.cs" t="Include" />
+                  <e p="RegisterProviderEventArgs.cs" t="Include" />
+                  <e p="StartCompletedEventArgs.cs" t="Include" />
+                </e>
+                <e p="Facade.cs" t="Include" />
+                <e p="IApplication.cs" t="Include" />
+                <e p="IBootstrap.cs" t="Include" />
+                <e p="IServiceProvider.cs" t="Include" />
+                <e p="ServiceProvider.cs" t="Include" />
+                <e p="StartProcess.cs" t="Include" />
+              </e>
+              <e p="Container" t="Include">
+                <e p="Bindable.cs" t="Include" />
+                <e p="BindData.cs" t="Include" />
+                <e p="BindDataExtension.cs" t="Include" />
+                <e p="Container.cs" t="Include" />
+                <e p="ContainerExtension.cs" t="Include" />
+                <e p="GivenData.cs" t="Include" />
+                <e p="IBindable.cs" t="Include" />
+                <e p="IBindData.cs" t="Include" />
+                <e p="IContainer.cs" t="Include" />
+                <e p="IGivenData.cs" t="Include" />
+                <e p="IMethodBind.cs" t="Include" />
+                <e p="InjectAttribute.cs" t="Include" />
+                <e p="IParams.cs" t="Include" />
+                <e p="MethodBind.cs" t="Include" />
+                <e p="MethodContainer.cs" t="Include" />
+                <e p="ParamsCollection.cs" t="Include" />
+                <e p="UnresolvableException.cs" t="Include" />
+                <e p="VariantAttribute.cs" t="Include" />
+              </e>
+              <e p="EventDispatcher" t="Include">
+                <e p="EventDispatcher.cs" t="Include" />
+                <e p="IEventDispatcher.cs" t="Include" />
+                <e p="IStoppableEvent.cs" t="Include" />
+              </e>
+              <e p="Exception" t="Include">
+                <e p="AssertException.cs" t="Include" />
+                <e p="LogicException.cs" t="Include" />
+                <e p="RuntimeException.cs" t="Include" />
+              </e>
+              <e p="IO" t="Include">
+                <e p="CombineStream.cs" t="Include" />
+                <e p="RingBufferStream.cs" t="Include" />
+                <e p="SegmentStream.cs" t="Include" />
+                <e p="StreamExtension.cs" t="Include" />
+                <e p="WrapperStream.cs" t="Include" />
+              </e>
+              <e p="Properties" t="Include">
+                <e p="AssemblyInfo.cs" t="Include" />
+              </e>
+              <e p="Util" t="Include">
+                <e p="Arr.cs" t="Include" />
+                <e p="Guard.cs" t="Include" />
+                <e p="InternalHelper.cs" t="Include" />
+                <e p="SortSet.cs" t="Include" />
+                <e p="Str.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Framework.cs" t="Include" />
+            <e p="UnityApplication.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="CatLib.Editor.csproj" t="IncludeRecursive" />
+      <e p="CatLib.Unity.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="UnityTinyFrameWork.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
