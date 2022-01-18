@@ -28,11 +28,31 @@ namespace Demo
             // called this function after, use App.Make function to get service
             // ex: App.Make<IYourService>().Debug("hello world");
 
+            App.OnNewApplication += (app) => { Debug.Log("new Application"); };
+
             Debug.Log("Hello CatLib, Debug Level: " + App.Make<DebugLevel>());
             App.Watch<DebugLevel>(newLevel =>
             {
                 Debug.Log("Change debug level: " + newLevel);
             });
+
+            App.OnResolving<IFileSystem>((fileSystem) => {Debug.Log("OnResolving");});
+            App.OnResolving((instance) => { Debug.Log("OnResolving Gloablly " + instance.GetType()); });
+
+            App.DebugLevel = DebugLevel.Staging;
+            var fileSystem1 = App.Make<IFileSystem>();
+            fileSystem1.SetData(1);
+
+            // App.Unbind<IFileSystem>();
+            // App.Release<IFileSystem>();
+            fileSystem1.PrintData();
+            // App.Bind<IFileSystem, FileSystem>();
+            var fileSystem2 = App.Make<IFileSystem>();
+            fileSystem2.SetData(2);
+            fileSystem2.PrintData();
+
+            App.Make<IDemoDebug>().Log("Hello");
+
         }
 
         /// <inheritdoc />

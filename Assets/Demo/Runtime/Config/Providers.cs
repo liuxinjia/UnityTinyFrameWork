@@ -26,6 +26,8 @@ namespace Demo
                 return new IServiceProvider[]
                 {
                     // todo: Add a service provider for your project here.
+                    new ProviderDebug(),
+                    new ProviderFileSystem()
                 };
             }
         }
