@@ -16,7 +16,7 @@ using UnityEditor;
 
 namespace CatLib.Editor
 {
-    [InitializeOnLoad]
+    // [InitializeOnLoad]
     public class EditorFramework
     {
         private static Application editorApplication;

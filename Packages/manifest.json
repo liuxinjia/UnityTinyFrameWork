@@ -45,6 +45,19 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0",
-    "jp.hadashikick.vcontainer": "https://github.com/hadashiA/VContainer.git?path=VContainer/Assets/VContainer#1.10.0"
-  }
+    "jp.hadashikick.vcontainer": "https://github.com/hadashiA/VContainer.git?path=VContainer/Assets/VContainer#1.10.0",
+    "com.gameframe.sqlite": "1.0.2",
+    "com.github.exceldatareader.exceldatareader": "3.6.0"
+  },
+  "scopedRegistries": [
+    {
+      "name": "package.openupm.com",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "com.gameframe.sqlite",
+        "com.github.exceldatareader.exceldatareader",
+        "com.openupm"
+      ]
+    }
+  ]
 }
