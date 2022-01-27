@@ -1,19 +1,227 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c20166e7-8f92-4724-832d-27ba3d3d547c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityTinyFrameWork/.idea/contentModel.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityTinyFrameWork/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnityTinyFrameWork/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityTinyFrameWork/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityTinyFrameWork/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnityTinyFrameWork/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/App.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/ExcelWriterHelper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/ExcelWriterHelper.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Editor/Excels/API/IExcelReader.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Editor/Excels/API/IExcelWriter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Editor/Excels/ExcelQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Editor/Excels/ExcelReader.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Editor/Excels/ExcelWriter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Editor/Excels/ExcelWriter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Editor/Excels/Utils/TypeConverter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Editor/Excels/Utils/TypeConverter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Example.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityTinyFrameWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnityTinyFrameWork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityTinyFrameWork/riderModule.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Demo/Runtime/Config/Providers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Demo/Runtime/Config/Providers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Demo/Runtime/Main.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Demo/Runtime/Main.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Demo/Runtime/Provider/ProviderTest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Demo/Runtime/Provider/ProviderTest.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FrameWork/Runtime/Core/CatLib/App.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FrameWork/Runtime/Core/CatLib/App.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/ExcelDataHelper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/ExcelDataHelper.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/ExcelDataHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/Excels/ExcelDataHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Doc.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Doc/Unity-Quicksheet.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Doc/Unity-Quicksheet.pdf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/BaseEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/BaseEditor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/Excels/API/IExcelWriter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/BaseMachine.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/BaseMachine.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/BaseMachineEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/BaseMachineEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/CustomAssetUtility.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/CustomAssetUtility.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/GUIHelper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/GUIHelper.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/Resources.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/Excels/Utils.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/Resources/brown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/Resources/brown.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/Resources/lightSkinBox.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/Resources/lightSkinBox.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/ScriptGenerator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/ScriptGenerator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/ScriptPrescription.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/ScriptPrescription.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/Util.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/Util/Cloner.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/Util/Cloner.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/Util/CsvParser.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/Util/CsvParser.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/Util/Singleton.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/Util/Singleton.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/Util/SingletonScriptableObject.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/Util/SingletonScriptableObject.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/Excels/API/IExcelReader.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/Util/Util.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Editor/Util/Util.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/Excels/ExcelQuery.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Example.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Example/Data.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Example/Data/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Example/Data/Editor/ExcelExampleAssetPostProcessor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Example/Data/Editor/ExcelExampleAssetPostProcessor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Example/Data/Editor/ExcelExampleEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Example/Data/Editor/ExcelExampleEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Example/Data/Runtime.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Example/Data/Runtime/ExcelExample.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Example/Data/Runtime/ExcelExample.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Example/Data/Runtime/ExcelExampleData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Example/Data/Runtime/ExcelExampleData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Example/Difficulty.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Example/Difficulty.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Example/Excel.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Example/Excel/Example.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Example/Excel/Example.xlsx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Example.xlsx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Example/Excel/ExcelExample.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Example/Excel/ExcelExample.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Example/ExcelExampleImporter.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Example/ExcelExampleImporter.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/BaseExcelEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/BaseExcelEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/Excel Settings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/Excel Settings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/ExcelMachine.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/ExcelMachine.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/ExcelMachineEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/ExcelMachineEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/ExcelQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/ExcelQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/ExcelQuery.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/ExcelQuery.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/ExcelSettings.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/ExcelSettings.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/ExcelSettingsEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/ExcelSettingsEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/Library.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/Library.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/Library/ICSharpCode.SharpZipLib.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/Library/ICSharpCode.SharpZipLib.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/Library/ICSharpCode.SharpZipLib.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/Library/ICSharpCode.SharpZipLib.dll.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/Library/NPOI.2.1.1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/Library/NPOI.2.1.1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/Library/NPOI.2.1.1.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/Library/NPOI.2.1.1.txt.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/Library/NPOI.OOXML.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/Library/NPOI.OOXML.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/Library/NPOI.OOXML.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/Library/NPOI.OOXML.dll.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/Library/NPOI.OpenXml4Net.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/Library/NPOI.OpenXml4Net.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/Library/NPOI.OpenXml4Net.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/Library/NPOI.OpenXml4Net.dll.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/Library/NPOI.OpenXmlFormats.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/Library/NPOI.OpenXmlFormats.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/Library/NPOI.OpenXmlFormats.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/Library/NPOI.OpenXmlFormats.dll.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/Library/NPOI.XML" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/Library/NPOI.XML" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/Library/NPOI.XML.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/Library/NPOI.XML.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/Library/NPOI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/Library/NPOI.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/Library/NPOI.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/Library/NPOI.dll.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/Library/Release Notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/Library/Release Notes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Editor/Library/Release Notes.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/Library/Release Notes.txt.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Templates.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Templates.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Templates/DataClass.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Templates/DataClass.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Templates/DataClass.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Templates/DataClass.txt.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Templates/PostProcessor.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Templates/PostProcessor.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Templates/PostProcessor.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Templates/PostProcessor.txt.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Templates/ScriptableObjectClass.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Templates/ScriptableObjectClass.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Templates/ScriptableObjectClass.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Templates/ScriptableObjectClass.txt.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Templates/ScriptableObjectEditorClass.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Templates/ScriptableObjectEditorClass.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/ExcelPlugin/Templates/ScriptableObjectEditorClass.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Templates/ScriptableObjectEditorClass.txt.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/BaseGoogleEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/BaseGoogleEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.Linq.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.Linq/ITableExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.Linq/ITableExtensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.Linq/Impl.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.Linq/Impl/Evaluator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.Linq/Impl/Evaluator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.Linq/Impl/ExpressionVisitor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.Linq/Impl/ExpressionVisitor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.Linq/Impl/GDataDBQueryProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.Linq/Impl/GDataDBQueryProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.Linq/Impl/OrderTranslator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.Linq/Impl/OrderTranslator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.Linq/Impl/Query.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.Linq/Impl/Query.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.Linq/Impl/QueryProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.Linq/Impl/QueryProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.Linq/Impl/QueryTranslator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.Linq/Impl/QueryTranslator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.Linq/Impl/TypeSystem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.Linq/Impl/TypeSystem.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.Linq/Impl/WhereTranslator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.Linq/Impl/WhereTranslator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/DatabaseClient.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/DatabaseClient.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/IDatabase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/IDatabase.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/IDatabaseClient.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/IDatabaseClient.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/IRow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/IRow.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/ITable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/ITable.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/Impl.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/Impl/Database.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/Impl/Database.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/Impl/GDataDBRequestFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/Impl/GDataDBRequestFactory.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/Excels/ExcelReader.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/Impl/Row.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/Impl/Row.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/Impl/Serializer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/Impl/Serializer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/Impl/Table.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/Impl/Table.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/Order.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/Order.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/Query.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/Query.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/README.md.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/license.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GDataDB/license.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/Google Data Settings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/Google Data Settings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/Google.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/Google/Google.GData.AccessControl.DLL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/Google/Google.GData.AccessControl.DLL.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/Google/Google.GData.Client.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/Google/Google.GData.Client.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/Google/Google.GData.Documents.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/Google/Google.GData.Documents.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/Google/Google.GData.Extensions.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/Google/Google.GData.Extensions.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/Google/Google.GData.Spreadsheets.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/Google/Google.GData.Spreadsheets.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/Google/Google.GData.license.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/Google/Google.GData.license.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/Google/license.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/Google/license.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GoogleDataSettings.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GoogleDataSettings.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GoogleDataSettingsEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GoogleDataSettingsEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GoogleMachine.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GoogleMachine.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GoogleMachineEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Editor/GoogleMachineEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Templates.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Templates/AssetFileClass.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Templates/AssetFileClass.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Templates/DataClass.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Templates/DataClass.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Templates/ScriptableObjectClass.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Templates/ScriptableObjectClass.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Templates/ScriptableObjectEditorClass.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/GDataPlugin/Templates/ScriptableObjectEditorClass.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Runtime.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Runtime/ExposePropertyAttribute.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Runtime/ExposePropertyAttribute.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Runtime/Util.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/Excels/API.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Runtime/Util/ConvertExt.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/Util/ConvertExt.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/QuickSheet/Runtime/Util/ConvertExt.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/Util/ConvertExt.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MiniIOC.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/Util.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/README.md.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages.nuget" beforeDir="false" afterPath="$PROJECT_DIR$/packages.nuget" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,11 +240,38 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/08373b4687ef4399a6d9ad66ea47c2ed361378/79/361fa4d4/DataRow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8e8fa28d216a43ec8dcb2258d1f7bf0031000/9a/aa31ba40/InflaterInputBuffer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Demo/Runtime/Service/API/IDemoDebug.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c773653e16b04197aa43bbe6a80f4ae182e800/4e/6a86021f/DeleteMode.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/08373b4687ef4399a6d9ad66ea47c2ed361378/a4/96fd7e2f/DataSet.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8e8fa28d216a43ec8dcb2258d1f7bf0031000/f7/abea39d0/ZipInputStream.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a5e93b48eab4da8a4b68a74896e98e9199800/c0/ec58cf3e/SheetUtil.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a5e93b48eab4da8a4b68a74896e98e9199800/94/bf6e4df9/ICell.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a5e93b48eab4da8a4b68a74896e98e9199800/3f/bfec426b/HSSFWorkbook.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c773653e16b04197aa43bbe6a80f4ae182e800/c4/6df173e9/Editor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a5e93b48eab4da8a4b68a74896e98e9199800/0f/482070a0/HSSFRow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a5e93b48eab4da8a4b68a74896e98e9199800/ec/1bcaf89d/IRow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/ExcelWriterHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a5e93b48eab4da8a4b68a74896e98e9199800/0d/2a1927b1/CellUtil.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b7669a6265a143cb8dfcca4048f53d1c46a800/a2/b04271ed/Number.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.gameframe.sqlite@1.0.2/Tests/Runtime/SQLiteRuntimeTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a5e93b48eab4da8a4b68a74896e98e9199800/25/a43d08e0/ISheet.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd824cfb55004855b9e6d51b008c90e4568778/20/ff561584/ValueTuple`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/09654f5254b44255887f6f774978077f16400/53/4ceeb9f0/ZipInputStreamZipEntrySource.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a5e93b48eab4da8a4b68a74896e98e9199800/e0/e6428176/CellType.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c773653e16b04197aa43bbe6a80f4ae182e800/87/424c7cb2/EditorApplication.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd824cfb55004855b9e6d51b008c90e4568778/93/696cac88/Convert.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a5e93b48eab4da8a4b68a74896e98e9199800/7e/3019b6b9/IWorkbook.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8e78e6356a5243cba14f9cf2a6dfa89a60130/e0/abb42cb7/SQLiteConnection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a5e93b48eab4da8a4b68a74896e98e9199800/9a/a3edc141/HSSFSheet.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6fd7ca6bad364c5ea94149697e72140078800/06/d89dd8f9/XSSFCell.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1912" />
@@ -45,7 +280,9 @@
     <option name="height" value="1056" />
   </component>
   <component name="ProjectId" id="23gKXRbotyJ2dUa4A7LiKZdx1CK" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="UnityExplorer" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -67,15 +304,21 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="rider.run.widget.enabled.cache" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
+    <property name="settings.editor.selected.configurable" value="CodeInspectionSettingsId" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -113,6 +356,10 @@
       <updated>1641977287642</updated>
       <workItem from="1641977288978" duration="1341000" />
       <workItem from="1642150357732" duration="1402000" />
+      <workItem from="1643269966917" duration="13465000" />
+      <workItem from="1643370696385" duration="18125000" />
+      <workItem from="1644311395064" duration="1368000" />
+      <workItem from="1644313101606" duration="1224000" />
     </task>
     <servers />
   </component>
@@ -162,8 +409,20 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
-  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">

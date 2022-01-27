@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packages>
+  <!-- targetFramework="netstandard2.1" makes nuget to unzip the netstandard2.1 version of the package-->
+  <package id="PackageA" version="1.0.0" targetFramework="netstandard2.1" />
+  <package id="PackageADependsOnThis" version="1.0.0" targetFramework="netstandard2.1" />
+  <package id="PackageB" version="1.0.0" targetFramework="netstandard2.1" />
+</packages>
