@@ -58,6 +58,7 @@ namespace Editor.Excels
             }
 
 
+            readerDict = new Dictionary<string, ExcelReader>(sheetNames.Count);
             for (int i = 0; i < sheetNames.Count; i++)
             {
                 readerDict.Add(sheetNames[i], new ExcelReader(path, sheetNames[i], headerIndex, contentIndex, delimiter));
