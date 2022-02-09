@@ -1,15 +1,22 @@
+using System;
 using System.Data;
 using System.IO;
 using System.Text;
+using Editor.Excels;
 using ExcelDataReader;
 using UnityEditor;
 using UnityEngine;
+using UnityQuickSheet;
+using ExcelQuery = Editor.Excels.ExcelQuery;
 
 namespace Editor
 {
     public class ExcelDataHelper
     {
-        private const string FilePath = @"D:\Phoenix_Android\excel\Taiwan\0.8.0\obt\item\CainBook.xlsx";
+        private const string FilePath = @"E:\UnityProject\UnityTinyFrameWork\Assets\Example.xlsx";
+        private const string NewFilePath = @"E:\UnityProject\UnityTinyFrameWork\Assets\NewExample.xlsx";
+
+        private const string SheetName = "ExcelExample";
         private static ExcelDataHelper instance;
 
         public static ExcelDataHelper Instance
@@ -30,7 +37,36 @@ namespace Editor
         [MenuItem("Tools/Test1")]
         public static void Test1()
         {
-            ExcelDataHelper.Instance.ReadTable(FilePath, "CainBook", "");
+            ExcelDataHelper.Instance.ReadTable(FilePath, SheetName, "");
+        }
+
+        [MenuItem("Tools/Test_Read")]
+        public static void Test_Read()
+        {
+            var excelReader = new ExcelReader(FilePath, SheetName, 0, 2);
+            var list = excelReader.GetRowsByID(9);
+            foreach (var item in list)
+            {
+                Debug.Log(item);
+            }
+        }
+
+        [MenuItem("Tools/Test_ReadAll")]
+        public static void Test_Read_All()
+        {
+            var excelReader = new ExcelReader(NewFilePath, SheetName, 0, 2);
+            var list = excelReader.GetAllCells();
+            foreach (var item in list)
+            {
+                Debug.Log(item);
+            }
+        }
+
+        [MenuItem("Tools/Test_Write")]
+        public static void Test_Write()
+        {
+            var excelWriter = new ExcelWriter(FilePath,  0, 2);
+            excelWriter.WriteTo(NewFilePath);
         }
 
         public void ReadAllTables(string filePath)
@@ -51,36 +87,45 @@ namespace Editor
 
         public void ReadTable(string filePath, string tableName, string nameSpace)
         {
+            DataTable dataTable;
             using (var stream = File.Open(filePath, FileMode.Open, FileAccess.ReadWrite))
             {
                 using (var reader = ExcelReaderFactory.CreateReader(stream))
                 {
                     DataSet result = reader.AsDataSet();
-                    var dataTable = result.Tables[tableName];
+                    dataTable = result.Tables[tableName];
                     var row = dataTable.Rows[0];
                     var column_0 = dataTable.Columns[0];
                     var column_1 = dataTable.Columns[1];
                     var column_2 = dataTable.Columns[2];
                     var column_3 = dataTable.Columns[3];
-                  var newRow =  dataTable.NewRow();
-                  newRow[column_1.ColumnName] = 1400;
-                  newRow[column_2.ColumnName] = 1;
-                  newRow[column_3.ColumnName] = "SectionName1400";
+                    var newRow = dataTable.NewRow();
+                    newRow[column_1.ColumnName] = 1400;
+                    newRow[column_2.ColumnName] = 1;
+                    newRow[column_3.ColumnName] = "SectionName1400";
 
-                  
-                  var column = new DataColumn();
-                  column.DataType = System.Type.GetType("System.Int32");
-                  column.ColumnName = "id";
-                  dataTable.Columns.Add(column);
-                  
-                  dataTable.Rows.Add(newRow);
 
-                  column_2.ReadOnly = false;
-                  dataTable.Rows[3][column_2] = "west";
-                  
-                  dataTable.AcceptChanges();
+                    var column = new DataColumn();
+                    column.DataType = System.Type.GetType("System.Int32");
+                    column.ColumnName = "id";
+                    dataTable.Columns.Add(column);
+
+                    dataTable.Rows.Add(newRow);
+
+                    column_2.ReadOnly = false;
+                    dataTable.Rows[3][column_2] = "west";
+
+                    dataTable.AcceptChanges();
                 }
             }
+
+            var excelWriter = new ExcelWriterHelper(FilePath);
+            File.Delete(FilePath);
+            excelWriter.WriteExcel(dataTable, SheetName);
+
+            dataTable.Clear();
+            dataTable = null;
+            GC.Collect();
         }
     }
 }
