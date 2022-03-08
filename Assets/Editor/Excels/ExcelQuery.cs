@@ -15,9 +15,10 @@ namespace Editor.Excels
     {
 
 
-        protected string filepath = string.Empty;
+        protected string filePath = string.Empty;
         protected int headerStartIndex = 0;
         protected int contentStartIndex = 2;
+        protected char delimiter;
         protected readonly TypeConverter converter;
 
         /// <summary>
@@ -25,9 +26,10 @@ namespace Editor.Excels
         /// </summary>
         public ExcelQuery(string path, int headerIndex = 0, int contentIndex = 0, char delimiter = ';')
         {
-            this.filepath = path;
+            this.filePath = path;
             this.headerStartIndex = headerIndex;
             this.contentStartIndex = contentIndex;
+            this.delimiter = delimiter;
             this.converter = new TypeConverter(delimiter);
 
         }
@@ -43,7 +45,7 @@ namespace Editor.Excels
             }
             return result;
         }
-      
+
         #region HelpMethods
 
 
@@ -258,6 +260,77 @@ namespace Editor.Excels
 
 
         }
+
+        /// <summary>
+        /// Convert type of cell value to its predefined type which is specified in the sheet's ScriptMachine setting file.
+        /// </summary>
+        protected void ConvertTo(Type t, MyCell oldCell, ICell newCell)
+        {
+
+            if (t == typeof(float) || t == typeof(double) || t == typeof(short) || t == typeof(int) || t == typeof(long))
+            {
+                if (oldCell.CellType == NPOI.SS.UserModel.CellType.Numeric)
+                {
+                    newCell.SetCellValue(oldCell.NumericCellValue);
+                }
+                else if (oldCell.CellType == NPOI.SS.UserModel.CellType.String)
+                {
+                    //Get correct numeric value even the cell is string type but defined with a numeric type in a data class.
+                    if (t == typeof(float))
+                        newCell.SetCellValue(Convert.ToSingle(oldCell.StringCellValue));
+                    if (t == typeof(double))
+                        newCell.SetCellValue(Convert.ToDouble(oldCell.StringCellValue));
+                    if (t == typeof(short))
+                        newCell.SetCellValue(Convert.ToInt16(oldCell.StringCellValue));
+                    if (t == typeof(int))
+                        newCell.SetCellValue(Convert.ToInt32(oldCell.StringCellValue));
+                    if (t == typeof(long))
+                        newCell.SetCellValue(Convert.ToInt64(oldCell.StringCellValue));
+                }
+                else if (oldCell.CellType == NPOI.SS.UserModel.CellType.Formula)
+                {
+                    // Get value even if cell is a formula
+                    if (t == typeof(float))
+                        newCell.SetCellValue(Convert.ToSingle(oldCell.NumericCellValue));
+                    if (t == typeof(double))
+                        newCell.SetCellValue(Convert.ToDouble(oldCell.NumericCellValue));
+                    if (t == typeof(short))
+                        newCell.SetCellValue(Convert.ToInt16(oldCell.NumericCellValue));
+                    if (t == typeof(int))
+                        newCell.SetCellValue(Convert.ToInt32(oldCell.NumericCellValue));
+                    if (t == typeof(long))
+                        newCell.SetCellValue(Convert.ToInt64(oldCell.NumericCellValue));
+                }
+            }
+            else if (t == typeof(string) || t.IsArray || t.IsEnum)
+            {
+                // HACK: handles the case that a cell contains numeric value
+                //       but a member field in a data class is defined as string type.
+                //       e.g. string s = "123"
+                if (oldCell.CellType == NPOI.SS.UserModel.CellType.Numeric)
+                    newCell.SetCellValue(oldCell.NumericCellValue);
+                else
+                    newCell.SetCellValue(oldCell.StringCellValue);
+            }
+            else if (t == typeof(bool))
+                newCell.SetCellValue(oldCell.BooleanCellValue);
+
+            else if (t.IsGenericType && t.GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
+            {
+                Debug.LogError("Don not support Generic Type Write");
+                newCell.SetCellType(CellType.Blank);
+                return;
+            }
+
+            else
+            {
+                Debug.LogError($"Dont not Support Type {t}");
+                newCell.SetCellType(CellType.Blank);
+            }
+
+
+        }
+
 
         #endregion
     }

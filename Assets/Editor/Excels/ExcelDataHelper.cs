@@ -7,7 +7,6 @@ using ExcelDataReader;
 using UnityEditor;
 using UnityEngine;
 using UnityQuickSheet;
-using ExcelQuery = Editor.Excels.ExcelQuery;
 
 namespace Editor
 {
@@ -62,10 +61,17 @@ namespace Editor
             }
         }
 
-        [MenuItem("Tools/Test_Write")]
+        [MenuItem("Tools/Test_Write %t")]
         public static void Test_Write()
         {
-            var excelWriter = new ExcelWriter(FilePath,  0, 2);
+            var excelWriter = new ExcelReplacer(FilePath, 0, 2);
+            excelWriter.AddNewRow(SheetName, "15", "Cindy15", "24", "Very Hard");
+            excelWriter.InsertNewRow(SheetName, 2, "10", "Cindy", "24", "Very Hard");
+            // excelWriter.InsertNewRow(SheetName, 6, "12", "Cindy12", "24", "Very Hard");
+            // excelWriter.InsertNewRow(SheetName, 6, "13", "Cindy13", "24", "Very Hard");
+            // excelWriter.InsertNewRow(SheetName, 9, "19", "Cindy19", "24", "Very Hard");
+            // excelWriter.AddNewRow(SheetName, "115", "Cindy_Last", "24", "Very Hard");
+            excelWriter.ReplaceRow(SheetName, 9, ("Name", "Candy"), ("Difficulty", "Easy"));
             excelWriter.WriteTo(NewFilePath);
         }
 
