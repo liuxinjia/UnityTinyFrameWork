@@ -9,7 +9,7 @@ using ExcelDataReader.Log;
 using NPOI.SS.UserModel;
 using System.Text;
 
-namespace Editor.Excels
+namespace Cr7Sund.Editor.Excels
 {
     public class ExcelReplacer : ExcelQuery, IExcelWriter
     {
@@ -302,7 +302,6 @@ namespace Editor.Excels
                 }
             }
         }
-
         public void DeleteRow(int id)
         {
             throw new NotImplementedException();

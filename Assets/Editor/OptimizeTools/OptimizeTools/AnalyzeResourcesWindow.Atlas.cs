@@ -22,7 +22,6 @@ namespace Cr7SundTools
         public void AnalyzeAtlasSize()
         {
             var textureGUIDs = AssetDatabase.FindAssets("t:texture2D");
-            string atlas = "Atlas";
             var beyondSizeTextures = new HashSet<string>();
             var invalidTextures = new HashSet<string>();
             for (int i = 0; i < textureGUIDs.Length; i++)

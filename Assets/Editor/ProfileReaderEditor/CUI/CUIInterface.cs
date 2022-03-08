@@ -77,7 +77,7 @@ namespace UTJ.ProfilerReader
                 {
                     logFlag = true;
                 }
-                if (args[i] == "-PH.dirLegacy") ;
+                if (args[i] == "-PH.dirLegacy") 
                 {
                     isLegacyOutputDirPath = true;
                 }

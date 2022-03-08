@@ -2,13 +2,13 @@ using System;
 using System.Data;
 using System.IO;
 using System.Text;
-using Editor.Excels;
+using Cr7Sund.Editor.Excels;
 using ExcelDataReader;
 using UnityEditor;
 using UnityEngine;
 using UnityQuickSheet;
 
-namespace Editor
+namespace Cr7Sund.Editor
 {
     public class ExcelDataHelper
     {

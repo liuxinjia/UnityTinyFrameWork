@@ -14,12 +14,12 @@ namespace Cr7Sund.Editor.Excels
 
 
 
-    public class ExcelWriter : ExcelQuery
+    public class NewExcelWriter : ExcelQuery
     {
 
-        Dictionary<string, TableWriter> tableWriters;
+        Dictionary<string, TableWriter> tableWriters = new Dictionary<string, TableWriter>();
 
-        public ExcelWriter(string path, int headerIndex = 0, int contentIndex = 0,
+        public NewExcelWriter(string path, int headerIndex = 0, int contentIndex = 0,
             char delimiter = ';') : base(path, headerIndex, contentIndex, delimiter)
         {
         }
@@ -86,19 +86,18 @@ namespace Cr7Sund.Editor.Excels
                 EditorUtility.ClearProgressBar();
             }
             EditorUtility.ClearProgressBar();
+            Application.OpenURL(filePath);
         }
 
 
-        private void InitHeaders(string sheetName, List<(string header, Type type)> headers)
+
+        public TableWriter AddTable(string sheetName)
         {
             if (!tableWriters.ContainsKey(sheetName)) tableWriters.Add(sheetName, new TableWriter(filePath, sheetName, headerStartIndex, contentStartIndex, delimiter));
-            tableWriters[sheetName].InitHeaders(headers);
+            else Debug.LogError($"Already exist {sheetName}");
+            return tableWriters[sheetName];
         }
 
-        private void Add(string sheetName, params object[] cells)
-        {
-            if (!tableWriters.ContainsKey(sheetName)) tableWriters.Add(sheetName, new TableWriter(filePath, sheetName, headerStartIndex, contentStartIndex, delimiter));
-            tableWriters[sheetName].AddRows(cells);
-        }
+
     }
 }

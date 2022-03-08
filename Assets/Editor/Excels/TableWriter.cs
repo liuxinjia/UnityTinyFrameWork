@@ -9,7 +9,7 @@ using ExcelDataReader.Log;
 using NPOI.SS.UserModel;
 using System.Text;
 
-namespace Editor.Excels
+namespace Cr7Sund.Editor.Excels
 {
     public class MyCell
     {
@@ -18,15 +18,24 @@ namespace Editor.Excels
         public double NumericCellValue;
         public bool BooleanCellValue;
     }
+
     public class MyRow
     {
         private List<MyCell> cells = new List<MyCell>();
         public int Count => cells.Count;
 
         internal MyCell GetCell(int k) => cells[k];
+
         public void AddCell(object obj, Type objType)
         {
             MyCell item = new MyCell();
+            cells.Add(item);
+            SetCell(obj, objType, cells.Count - 1);
+        }
+
+        public void SetCell(object obj, Type objType, int index)
+        {
+            MyCell item = cells[index];
             if (objType == typeof(string))
             {
                 item.CellType = CellType.String;
@@ -47,7 +56,6 @@ namespace Editor.Excels
                 item.CellType = CellType.Error;
                 Debug.LogError("Unkown Type ");
             }
-            cells.Add(item);
         }
     }
 
@@ -55,8 +63,8 @@ namespace Editor.Excels
     public class TableWriter : ExcelQuery
     {
 
-        private List<(string header, Type type)> headerList;
-        private List<MyRow> rows;
+        private List<(string header, Type type)> headerList = new List<(string header, Type)>();
+        private List<MyRow> rows = new List<MyRow>();
         private string sheetName;
 
         public TableWriter(string path, string sheetName, int headerIndex = 0, int contentIndex = 0,
@@ -160,6 +168,15 @@ namespace Editor.Excels
         }
 
         #region Public Methods
+
+        public void InitHeaders(params string[] headers)
+        {
+            foreach (var item in headers)
+            {
+                headerList.Add((item, typeof(int)));
+            }
+        }
+
         public void InitHeaders(List<(string header, Type type)> headers)
         {
             foreach (var item in headers)
@@ -168,7 +185,7 @@ namespace Editor.Excels
             }
         }
 
-        public void Add(params object[] cells)
+        public void AddRows(params object[] cells)
         {
             if (cells.Length != headerList.Count) { Debug.LogError("row datas don not match headers"); return; }
             var newRow = new MyRow();
@@ -181,6 +198,29 @@ namespace Editor.Excels
             }
         }
 
+        public void SetValue(int rowIndex, int columnIndex, object value)
+        {
+            MyRow row = null;
+            if (rows.Count <= rowIndex)
+            {
+                row = new MyRow();
+                rows.Add(row);
+            }
+            else
+            {
+                row = rows[rowIndex];
+            }
+
+
+            if (row.Count <= columnIndex)
+            {
+                row.AddCell(value, headerList[columnIndex].type);
+            }
+            else
+            {
+                row.SetCell(value, headerList[columnIndex].type, columnIndex);
+            }
+        }
 
         #endregion
     }

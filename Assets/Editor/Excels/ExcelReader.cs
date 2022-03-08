@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using NPOI.SS.UserModel;
 
-namespace Editor.Excels
+namespace Cr7Sund.Editor.Excels
 {
     public class ExcelReader : ExcelQuery, IExcelReader
     {

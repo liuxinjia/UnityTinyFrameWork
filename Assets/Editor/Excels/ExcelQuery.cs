@@ -9,7 +9,7 @@ using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using System.ComponentModel;
 
-namespace Editor.Excels
+namespace Cr7Sund.Editor.Excels
 {
     public class ExcelQuery
     {
