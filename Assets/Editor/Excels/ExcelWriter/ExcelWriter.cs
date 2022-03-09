@@ -12,23 +12,41 @@ using System.Text;
 namespace Cr7Sund.Editor.Excels
 {
 
-    public class ExcelWriter : ExcelQuery, IExcelWriter
+    public class ExcelWriter : IExcelWriter
     {
-        private Dictionary<string, TableWriter> tableWriters = new Dictionary<string, TableWriter>();
+        private Dictionary<string, ExcelQuery> tableWriters = new Dictionary<string, ExcelQuery>();
+
+        protected string filePath = string.Empty;
+        protected int headerStartIndex = 0;
+        protected int contentStartIndex = 2;
+        protected char delimiter;
 
         public ExcelWriter(string path, int headerIndex = 0, int contentIndex = 1,
-            char delimiter = ';') : base(path, headerIndex, contentIndex, delimiter)
+            char delimiter = ';')
         {
+            this.filePath = path;
+            this.headerStartIndex = headerIndex;
+            this.contentStartIndex = contentIndex;
+            this.delimiter = delimiter;
         }
 
         public void SaveExcels()
         {
             EditorUtil.Instance.ClearConsoleLog();
-            
+
             if (File.Exists(filePath))
             {
                 try
                 {
+                    var reader = new ExcelReader(filePath, headerStartIndex, contentStartIndex, delimiter);
+                    for (int i = 0; i < reader.sheetNames.Count; i++)
+                    {
+                        if (!tableWriters.ContainsKey(reader.sheetNames[i]))
+                        {
+                            tableWriters.Add(reader.sheetNames[i], reader.GetTableReader(reader.sheetNames[i]));
+                        }
+
+                    }
                     File.Delete(filePath);
                 }
                 catch (Exception e)
@@ -82,7 +100,7 @@ namespace Cr7Sund.Editor.Excels
         {
             if (!tableWriters.ContainsKey(sheetName)) tableWriters.Add(sheetName, new TableWriter(filePath, sheetName, headerStartIndex, contentStartIndex, showColumnType, showID, delimiter));
             else Debug.LogError($"Already exist {sheetName}");
-            return tableWriters[sheetName];
+            return tableWriters[sheetName] as TableWriter;
         }
 
 

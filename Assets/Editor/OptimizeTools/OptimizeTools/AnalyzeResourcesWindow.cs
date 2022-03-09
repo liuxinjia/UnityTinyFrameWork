@@ -4,7 +4,8 @@ using UnityEditor;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text.RegularExpressions;
-
+using Cr7Sund.Editor.Excels;
+using System;
 
 namespace Cr7SundTools
 {
@@ -95,71 +96,50 @@ namespace Cr7SundTools
 
         private void ExportData2Excel(List<string> values, string tableName = "sprite", string excelName = "SpriteInfo")
         {
-            // if (values.Count < 2) return;
-            // //drawtreasure 1 1 10 100
-            // string path = Application.dataPath + $"/{excelName}.xlsx";
+            if (values.Count < 2) return;
+            //drawtreasure 1 1 10 100
+            string path = EditorUtil.GetProjectAbsolutePath($"{excelName}.xlsx");
+            var excel = new ExcelWriter(path);
+            var excelTable = excel.CreateTable(tableName);
 
-            // Excel excel = ExcelHelper.LoadExcel(path);
-            // if (excel == null)
-            // {
-            //     excel = ExcelHelper.CreateExcel(path);
-            //     excel.Tables[0].TableName = tableName;
-            // }
+            List<(string header, Type type)> headers = new List<(string header, Type)>();
 
-            // int tableIndex = excel.Tables.Count; //deafult tables length is one when CreateNewExcel 
-            // for (int j = 0; j < excel.Tables.Count; j++)
-            // {
-            //     ExcelTable item = excel.Tables[j];
-            //     if (item.TableName == tableName)
-            //     {
-            //         tableIndex = j;
-            //         break;
-            //     }
-            // }
+            for (int colIndex = 0; colIndex < values.Count; colIndex++)
+            {
+                var titles = values[colIndex].Split(',');
+                if (colIndex == 0)
+                {
+                    headers.Add(("资源名字", typeof(string)));
+                    headers.Add(("资源路径", typeof(string)));
 
-            // if (tableIndex == excel.Tables.Count)
-            //     excel.AddTable(tableName);
-            // ExcelTable excelTable = excel.Tables[tableIndex];
-
-
-            // int startRow = 1;
-            // excelTable.SetValue(startRow, 1, "ID");
-            // excelTable.SetValue(startRow, 2, "资源名字");
-            // excelTable.SetValue(startRow, 3, "资源路径");
-
-            // for (int colIndex = 0; colIndex < values.Count; colIndex++)
-            // {
-            //     var titles = values[colIndex].Split(',');
-            //     if (colIndex == 0)
-            //     {
-            //         for (int i = 0; i < titles.Length; i++)
-            //         {
-            //             excelTable.SetValue(colIndex + startRow, i + 4, titles[i]);
-            //         }
-            //     }
-            //     else
-            //     {
-            //         excelTable.SetValue(colIndex + startRow, 1, colIndex.ToString());
-            //         for (int i = 0; i < titles.Length; i++)
-            //         {
-            //             if (i == 0)
-            //             {
-            //                 var fileNames = titles[i].Split('/');
-            //                 var fileName = fileNames[fileNames.Length - 1].Split('.');
-            //                 excelTable.SetValue(colIndex + startRow, i + 2, fileName[0]);
-            //                 excelTable.SetValue(colIndex + startRow, i + 3, titles[i]);
-            //             }
-            //             else
-            //             {
-            //                 excelTable.SetValue(colIndex + startRow, 3 + i, titles[i]);
-            //             }
-            //         }
-            //     }
-            // }
+                    for (int i = 0; i < titles.Length; i++)
+                    {
+                        headers.Add((titles[i], typeof(string)));
+                    }
+                    excelTable.InitHeaders(headers);
+                }
+                else
+                {
+                    for (int i = 0; i < titles.Length-1; i++)
+                    {
+                        if (i == 0)
+                        {
+                            var fileNames = titles[i].Split('/');
+                            var fileName = fileNames[fileNames.Length - 1].Split('.');
+                            excelTable.SetValue(colIndex - 1, i, fileName[0]);
+                            excelTable.SetValue(colIndex-1, i + 1, titles[i]);
+                        }
+                        else
+                        {
+                            excelTable.SetValue(colIndex - 1, 1 + i, titles[i]);
+                        }
+                    }
+                }
+            }
 
 
-            // ExcelHelper.SaveExcel(excel, path);
-           
+            excel.SaveExcels();
+
         }
 
         private void InvokeFoldOutAction(string actionName)
@@ -205,7 +185,7 @@ namespace Cr7SundTools
         public static void getSourceTextureWidthAndHeight(this TextureImporter importer, out int width, out int height)
         {
 #if UNITY_2021_2_OR_NEWER
-            importer.GetSourceTextureWidthAndHeight(out width, out  height);
+            importer.GetSourceTextureWidthAndHeight(out width, out height);
 #else
             var info = importer.GetSourceTextureInformation();
             if (info.width == -1)

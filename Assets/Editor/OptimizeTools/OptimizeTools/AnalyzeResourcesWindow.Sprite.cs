@@ -7,16 +7,14 @@ namespace Cr7SundTools
 
     public partial class AnalyzeResourcesWindow
     {
-      
+        string[] searchInFolders = new[] {
+                 "Assets/" };
 
         public void AnalyzeSprites()
         {
-            string path = Application.dataPath + $"/SpriteInfo.xlsx";
-            System.IO.File.Delete(path);
             AnalyzeSpriteSize();
             AnalyzeSpriteFormat();
             AnalyzeSpriteOtherSettings();
-            Application.OpenURL(path);
         }
 
         /// <summary>
@@ -25,9 +23,8 @@ namespace Cr7SundTools
         /// </summary>
         public void AnalyzeSpriteFormat()
         {
-            var textureGUIDs = AssetDatabase.FindAssets("t:texture2D", new[] {
-                 "Assets/Sprites/Small","Assets/bundles/Atlas/large",
-                 "Assets/Localize/TW/bundles/Atlas/large","Assets/Localize/TW/Sprites/Small" });
+
+            var textureGUIDs = AssetDatabase.FindAssets("t:texture2D", searchInFolders);
 
             var invalidTextures = new HashSet<string>();
             for (int i = 0; i < textureGUIDs.Length; i++)
@@ -101,9 +98,6 @@ namespace Cr7SundTools
 
                 EditorUtility.DisplayProgressBar("reimport texture " + i + "/" + textureGUIDs.Length, path, (float)i / textureGUIDs.Length);
 
-                if (path.Contains("sampleTextures")) continue;
-                if (path.Contains("large")) continue;
-                if (!path.Contains("Sprites")) continue;
                 bool modified = false;
                 TextureImporter importer;
                 if (!importerDict.ContainsKey(path))
@@ -165,9 +159,7 @@ namespace Cr7SundTools
         public void AnalyzeSpriteOtherSettings()
         {
 
-            var textureGUIDs = AssetDatabase.FindAssets("t:texture2D", new[] {
-                 "Assets/Sprites/Small","Assets/bundles/Atlas/large",
-                 "Assets/Localize/TW/bundles/Atlas/large","Assets/Localize/TW/Sprites/Small" });
+            var textureGUIDs = AssetDatabase.FindAssets("t:texture2D", searchInFolders);
 
             var invalidTextures = new HashSet<string>();
             for (int i = 0; i < textureGUIDs.Length; i++)

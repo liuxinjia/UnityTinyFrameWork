@@ -14,26 +14,77 @@ namespace Cr7Sund.Editor.Excels
     public class ExcelQuery
     {
 
+        protected List<(string header, Type type)> headerList = new List<(string header, Type)>();
+        protected List<MyRow> rows = new List<MyRow>();
+        protected string sheetName;
 
         protected string filePath = string.Empty;
         protected int headerStartIndex = 0;
         protected int contentStartIndex = 2;
         protected char delimiter;
+        protected bool showColumnType;
+        protected bool showID;
+
+
         protected readonly TypeConverter converter;
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        public ExcelQuery(string path, int headerIndex = 0, int contentIndex = 0, char delimiter = ';')
+        public ExcelQuery(string path, string sheetName, int headerIndex = 0, int contentIndex = 0, char delimiter = ';')
         {
             this.filePath = path;
+            this.sheetName = sheetName;
             this.headerStartIndex = headerIndex;
             this.contentStartIndex = contentIndex;
             this.delimiter = delimiter;
             this.converter = new TypeConverter(delimiter);
-
         }
 
+
+        internal void WriteDatas(IWorkbook workbook)
+        {
+            var newSheet = workbook.CreateSheet(sheetName);
+
+            //Iterate through each sheet, sheet -> rows
+            for (int j = 0; j < rows.Count; j++)
+            {
+                var newRow = newSheet.CreateRow(j);
+                var sheetRows = rows[j];
+
+                // Iterate through eachRow, row -> cells 
+                for (int k = 0; k < sheetRows.Count; k++)
+                {
+                    var newCell = newRow.CreateCell(k);
+                    var oldCell = sheetRows.GetCell(k);
+                    var headerInfo = headerList[k];
+
+                    if (!showColumnType && j == this.contentStartIndex) continue;
+
+                    var type = headerInfo.type;
+                    bool isComment = headerInfo.header.Contains('#');
+
+                    if (oldCell == null || oldCell.CellType == CellType.Blank) continue;
+                    if (type.IsArray
+                        || isComment
+                        || j < contentStartIndex)
+                    {
+                        newCell.SetCellValue(oldCell.StringCellValue);
+                    }
+                    else if (showColumnType && j == this.contentStartIndex)
+                    {
+                        if (k == 0)
+                            newCell.SetCellType(CellType.Blank);
+                        else if (oldCell.CellType != CellType.Blank && oldCell.StringCellValue != null)
+                            newCell.SetCellValue(oldCell.StringCellValue);
+                    }
+                    else
+                    {
+                        ConvertTo(type, oldCell, newCell);
+                    }
+                }
+            }
+        }
 
 
         #region HelpMethods
@@ -331,7 +382,6 @@ namespace Cr7Sund.Editor.Excels
                 newCell.SetCellType(CellType.Blank);
                 return;
             }
-
             else
             {
                 Debug.LogError($"Dont not Support Type {t}");
@@ -343,5 +393,83 @@ namespace Cr7Sund.Editor.Excels
 
 
         #endregion
+    }
+
+
+    public class MyCell
+    {
+        public CellType CellType;
+        public string StringCellValue;
+        public double NumericCellValue;
+        public bool BooleanCellValue;
+
+        public static MyCell ToMyCell(ICell cell)
+        {
+            var newCell = new MyCell();
+            newCell.CellType = cell.CellType;
+
+            if (cell.CellType == CellType.String)
+                newCell.StringCellValue = cell.StringCellValue;
+            else if (cell.CellType == CellType.Numeric)
+                newCell.NumericCellValue = cell.NumericCellValue;
+            else if (cell.CellType == CellType.Boolean)
+                newCell.BooleanCellValue = cell.BooleanCellValue;
+            return newCell;
+        }
+    }
+
+    public class MyRow
+    {
+        private List<MyCell> cells = new List<MyCell>();
+        public int Count => cells.Count;
+
+        internal MyCell GetCell(int k) => cells[k];
+
+        public void AddCell(object obj, Type objType, bool skipTypeJudge = false)
+        {
+            MyCell item = new MyCell();
+            cells.Add(item);
+            SetCell(obj, objType, cells.Count - 1, skipTypeJudge);
+        }
+
+        public void SetCell(object obj, Type objType, int index, bool skipTypeJudge = false)
+        {
+            MyCell item = cells[index];
+
+            if (objType == typeof(string) || skipTypeJudge)
+            {
+                item.CellType = CellType.String;
+                item.StringCellValue = obj.ToString();
+            }
+            else if (objType == typeof(bool))
+            {
+                item.CellType = CellType.Boolean;
+                item.BooleanCellValue = Convert.ToBoolean(obj);
+            }
+            else if (double.TryParse(obj.ToString(), out var result))
+            {
+                item.CellType = CellType.Numeric;
+                item.NumericCellValue = result;
+            }
+            else
+            {
+                item.CellType = CellType.Error;
+                Debug.LogError("Unkown Type ");
+            }
+        }
+
+
+        public static MyRow ToMyRow(IRow row)
+        {
+            var newRow = new MyRow();
+            if (row != null)
+            {
+                for (var j = row.FirstCellNum; j < row.LastCellNum; j++)
+                {
+                    newRow.cells.Add(MyCell.ToMyCell(row.GetCell(j)));
+                }
+            }
+            return newRow;
+        }
     }
 }
