@@ -45,7 +45,7 @@ namespace Cr7Sund.Editor.Excels
                     fileStream.Position = 0;
                     IWorkbook workbook = null;
 
-                    string extension = UnityQuickSheet.ExcelQuery.GetSuffix(path);
+                    string extension = EditorUtil.GetSuffix(path);
 
                     if (extension == "xls")
                         workbook = new HSSFWorkbook(fileStream);
@@ -210,58 +210,21 @@ namespace Cr7Sund.Editor.Excels
             }
         }
 
+        private List<IRow> GetAllRows(ISheet sheet)
+        {
+            var result = new List<IRow>();
+            //  sheet.LastRowNum is one more than the real rows number 
+            for (var i = sheet.FirstRowNum; i <= sheet.LastRowNum; i++)
+            {
+                result.Add(sheet.GetRow(i));
+            }
+            return result;
+        }
+
         #endregion
 
         #region internal Methods
 
-        internal bool IsComment(int column) => excludeNoteSet.Contains(column);
-        internal Type GetColumnType(int column) => headerList[column].type;
-        internal string GetColumnHeader(int column) => headerList[column].header;
-        internal int GetSheetColumnLengh() => headerList.Count;
-        internal int GetSheetRowLength() => sheet.LastRowNum;
-
-        internal int GetMappedColumn(int id)
-        {
-            if (idDict.TryGetValue(id, out var collumn)) return collumn;
-            return -1;
-        }
-
-        /// <summary>
-        /// Only used for writer
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="newId"></param>
-        /// <returns></returns>
-        internal IRow InsertNewRow(int id, int newId)
-        {
-            if (haveBeenModified) haveBeenModified = false;
-            // var row = Sheet.CreateRow(Sheet.LastRowNum + 1); //Sheet is not still persist any more
-            int column = sheet.LastRowNum;
-            if (idDict.ContainsKey(id))
-            {
-                column = idDict[id];
-                var shiftIds = new List<int>();
-                foreach (var ids in idDict)
-                {
-                    if (ids.Value >= column)
-                    {
-                        shiftIds.Add(ids.Key);
-                    }
-                }
-
-                foreach (var shiftID in shiftIds)
-                {
-                    idDict[shiftID]++;
-                }
-            }
-
-            var row = Sheet.CopyRow(0, Sheet.LastRowNum + 1);
-
-            idDict.Add(newId, column);
-            haveBeenModified = true;
-
-            return row;
-        }
 
         /// <summary>
         /// Can not used by Excel Writer again since we insert the new rows, but the id dictionary is not the same
@@ -277,7 +240,7 @@ namespace Cr7Sund.Editor.Excels
             }
             else
             {
-                Debug.Log($"Don't exist {id}");
+                Debug.LogError($"Don't exist {id}");
             }
 
             return result;

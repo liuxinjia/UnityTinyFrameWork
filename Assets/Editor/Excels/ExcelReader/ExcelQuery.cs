@@ -35,16 +35,6 @@ namespace Cr7Sund.Editor.Excels
         }
 
 
-        protected List<IRow> GetAllRows(ISheet sheet)
-        {
-            var result = new List<IRow>();
-            //  sheet.LastRowNum is one more than the real rows number 
-            for (var i = sheet.FirstRowNum; i <= sheet.LastRowNum; i++)
-            {
-                result.Add(sheet.GetRow(i));
-            }
-            return result;
-        }
 
         #region HelpMethods
 

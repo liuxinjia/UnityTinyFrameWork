@@ -6,59 +6,50 @@ using UnityEngine.TestTools;
 using Cr7Sund.Editor.Excels;
 using System.Text;
 
-public class TestExcelTools : IPrebuildSetup
+[PrebuildSetup("TestInit")]
+public class TestExcelTools
 {
-    private static string FilePath = @"Cr7Example.xlsx";
-    private string fileRelativePath = @"Cr7Example.xlsx";
-    private List<int> datas = new List<int>();
-    private int length = 9;
-
-    public void Setup()
-    {
-        FilePath = EditorUtil.Instance.GetAssetAbsolutePath(fileRelativePath);
-
-        InitDatas();
-    }
-
-    private void InitDatas()
-    {
-        datas.Clear();
-        for (int row = 0; row < length; row++)
-        {
-            for (int col = 0; col < length; col++)
-            {
-                datas.Add(row * length + col);
-            }
-        }
-    }
-
-    // A Test behaves as an ordinary method
     [Test]
-    public void CreateOneExcel()
+    public void CreateExcel()
     {
-        var excelWriter = new NewExcelWriter(FilePath, 0, 1);
+        var excelWriter = new ExcelWriter(TestInit.FilePath, 0, 1);
 
         var table = excelWriter.CreateTable("west", true, true);
         var sb = new StringBuilder();
-        for (int col = 0; col < length - 1; col++) sb.Append($"Num_{col},");
-        sb.Append($"Num_{length - 1}");
+        for (int col = 0; col < TestInit.length - 1; col++) sb.Append($"Num_{col},");
+        sb.Append($"Num_{TestInit.length - 1}");
         table.InitHeaders(sb.ToString().Split(",")); //last
 
-        for (int i = 0; i < datas.Count; i++)
+        for (int i = 0; i < TestInit.datas.Count; i++)
         {
-            int row = i / length;
-            int col = i % length;
-            table.SetValue(row, col, datas[i]);
+            int row = i / TestInit.length;
+            int col = i % TestInit.length;
+            table.SetValue(row, col, TestInit.datas[i]);
         }
 
         excelWriter.SaveExcels();
     }
 
-    // A Test behaves as an ordinary method
+
     [Test]
-    public void CreateMulitpleExcel()
+    public void ReadExcel()
     {
-        var excelWriter = new NewExcelWriter(FilePath, 0, 1);
+
+        var excelReader = new ExcelReader(TestInit.FilePath, "west", 0, 1);
+        int rowIndex = 2;
+        var list = excelReader.GetRowsByID(rowIndex);
+        for (int i = 0; i < list.Count; i++)
+        {
+            object item = list[i];
+            if (TestInit.datas[rowIndex * TestInit.length + i] != (int)list[i]) // has ID column
+                Debug.LogError($"{i}-{item}");
+        }
+    }
+
+    [Test]
+    public void CreateMulitpleExcels()
+    {
+        var excelWriter = new ExcelWriter(TestInit.FilePath, 0, 1);
 
         int length = 9;
         var table = excelWriter.CreateTable("west", true, true);
@@ -90,21 +81,6 @@ public class TestExcelTools : IPrebuildSetup
         }
 
         excelWriter.SaveExcels();
-    }
-
-    [Test]
-    public void ReadExcel()
-    {
-
-        var excelReader = new ExcelReader(FilePath, "west", 0, 1);
-        int rowIndex = 2;
-        var list = excelReader.GetRowsByID(rowIndex);
-        for (int i = 0; i < list.Count; i++)
-        {
-            object item = list[i];
-            if (datas[rowIndex * length + i] != (int)list[i]) // has ID column
-                Debug.LogError($"{i}-{item}");
-        }
     }
 
 }

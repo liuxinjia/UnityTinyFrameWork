@@ -12,11 +12,11 @@ using System.Text;
 namespace Cr7Sund.Editor.Excels
 {
 
-    public class NewExcelWriter : ExcelQuery, IExcelWriter
+    public class ExcelWriter : ExcelQuery, IExcelWriter
     {
         private Dictionary<string, TableWriter> tableWriters = new Dictionary<string, TableWriter>();
 
-        public NewExcelWriter(string path, int headerIndex = 0, int contentIndex = 1,
+        public ExcelWriter(string path, int headerIndex = 0, int contentIndex = 1,
             char delimiter = ';') : base(path, headerIndex, contentIndex, delimiter)
         {
         }
@@ -45,7 +45,7 @@ namespace Cr7Sund.Editor.Excels
                     fileStream.Position = 0;
                     IWorkbook workbook = null;
 
-                    string extension = UnityQuickSheet.ExcelQuery.GetSuffix(filePath);
+                    string extension = EditorUtil.GetSuffix(filePath);
 
                     if (extension == "xls")
                         workbook = new HSSFWorkbook();
@@ -68,7 +68,6 @@ namespace Cr7Sund.Editor.Excels
                     }
 
                     workbook.Write(fileStream);
-                    Debug.Log("Wirte to excel successfully");
                 }
 
             }
