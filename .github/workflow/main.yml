@@ -1,2 +1,7 @@
+- name: Checkout
+  uses: actions/checkout@v3.0.0
+
+
 - name: Unity - Test runner
   uses: game-ci/unity-test-runner@v2.0.0-alpha-7
+`

@@ -69,6 +69,29 @@ namespace Cr7Sund.Editor.Excels
             return typeof(Array);
         }
 
+        public string GetSimplifyTypes(Type type)
+        {
+            if (type == typeof(int)) return "int";
+            if (type == typeof(float)) return "float";
+
+            if (type.IsArray && type.GetElementType() == typeof(int)) return "int[;]";
+            if (type.IsArray && type.GetElementType() == typeof(float)) return "float[;]";
+
+            var typeStrs = type.ToString().Split('.');
+            if (type.IsArray)
+            {
+                var elementType = type.GetElementType();
+                return $"{GetSimplifyTypes(elementType)}[;]";
+            }
+            else if (type.IsGenericType)
+            {
+                var elementType = type.GetGenericArguments()[0];
+                return GetSimplifyTypes(elementType);
+            }
+            else return typeStrs[typeStrs.Length - 1].ToLower();
+        }
+
+
 
         /// <summary>
         /// Convert type of cell value to its predefined type which is specified in the sheet's ScriptMachine setting file.
@@ -240,9 +263,7 @@ namespace Cr7Sund.Editor.Excels
 
             if (t == typeof(float) || t == typeof(double) || t == typeof(short) || t == typeof(int) || t == typeof(long))
             {
-
                 cell.SetCellValue(Convert.ToDouble(newValue));
-
             }
             else if (t == typeof(string) || t.IsArray || t.IsEnum)
             {
@@ -250,7 +271,6 @@ namespace Cr7Sund.Editor.Excels
             }
             else if (t == typeof(bool))
                 cell.SetCellValue(Convert.ToBoolean(newValue));
-
 
             else
             {

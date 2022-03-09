@@ -12,45 +12,40 @@ using System.Text;
 namespace Cr7Sund.Editor.Excels
 {
 
-
-
-    public class ExcelWriter : ExcelQuery
+    public class NewExcelWriter : ExcelQuery, IExcelWriter
     {
+        private Dictionary<string, TableWriter> tableWriters = new Dictionary<string, TableWriter>();
 
-        Dictionary<string, TableWriter> tableWriters;
-
-        public ExcelWriter(string path, int headerIndex = 0, int contentIndex = 0,
+        public NewExcelWriter(string path, int headerIndex = 0, int contentIndex = 1,
             char delimiter = ';') : base(path, headerIndex, contentIndex, delimiter)
         {
         }
 
-        public void WriteTo(string newPath = null)
+        public void SaveExcels()
         {
-
-            if (string.IsNullOrEmpty(newPath))
+            EditorUtil.Instance.ClearConsoleLog();
+            
+            if (File.Exists(filePath))
             {
                 try
                 {
                     File.Delete(filePath);
-                    EditorUtility.DisplayProgressBar(" Excel writer", "Write Excel", 0.4f);
                 }
                 catch (Exception e)
                 {
-                    EditorUtility.ClearProgressBar();
                     throw new Exception("Delete File: ", e);
                 }
-                newPath = filePath;
             }
 
             try
             {
-                using (FileStream fileStream = new FileStream(newPath, FileMode.OpenOrCreate, FileAccess.ReadWrite,
+                using (FileStream fileStream = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.ReadWrite,
                            FileShare.ReadWrite))
                 {
                     fileStream.Position = 0;
                     IWorkbook workbook = null;
 
-                    string extension = UnityQuickSheet.ExcelQuery.GetSuffix(newPath);
+                    string extension = UnityQuickSheet.ExcelQuery.GetSuffix(filePath);
 
                     if (extension == "xls")
                         workbook = new HSSFWorkbook();
@@ -64,18 +59,15 @@ namespace Cr7Sund.Editor.Excels
                     }
                     else
                     {
-                        EditorUtility.ClearProgressBar();
                         throw new Exception("Wrong file.");
                     }
 
                     foreach (var item in tableWriters)
                     {
-
                         item.Value.WriteDatas(workbook);
                     }
 
                     workbook.Write(fileStream);
-                    EditorUtility.DisplayProgressBar(" Excel writer", "Write Excel", 1.0f);
                     Debug.Log("Wirte to excel successfully");
                 }
 
@@ -83,22 +75,17 @@ namespace Cr7Sund.Editor.Excels
             catch (Exception e)
             {
                 Debug.Log(e + ", " + e.StackTrace);
-                EditorUtility.ClearProgressBar();
             }
-            EditorUtility.ClearProgressBar();
+            Application.OpenURL(filePath);
         }
 
-
-        private void InitHeaders(string sheetName, List<(string header, Type type)> headers)
+        public TableWriter CreateTable(string sheetName, bool showColumnType = false, bool showID = true)
         {
-            if (!tableWriters.ContainsKey(sheetName)) tableWriters.Add(sheetName, new TableWriter(filePath, sheetName, headerStartIndex, contentStartIndex, delimiter));
-            tableWriters[sheetName].InitHeaders(headers);
+            if (!tableWriters.ContainsKey(sheetName)) tableWriters.Add(sheetName, new TableWriter(filePath, sheetName, headerStartIndex, contentStartIndex, showColumnType, showID, delimiter));
+            else Debug.LogError($"Already exist {sheetName}");
+            return tableWriters[sheetName];
         }
 
-        private void Add(string sheetName, params object[] cells)
-        {
-            if (!tableWriters.ContainsKey(sheetName)) tableWriters.Add(sheetName, new TableWriter(filePath, sheetName, headerStartIndex, contentStartIndex, delimiter));
-            tableWriters[sheetName].AddRows(cells);
-        }
+
     }
 }

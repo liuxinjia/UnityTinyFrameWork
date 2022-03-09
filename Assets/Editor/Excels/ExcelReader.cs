@@ -19,7 +19,9 @@ namespace Cr7Sund.Editor.Excels
         private List<IRow> newRow;
         private bool haveBeenModified = false;
 
-        public ISheet Sheet
+        private bool hasIDColumn = false;
+
+        internal ISheet Sheet
         {
             get
             {
@@ -32,7 +34,7 @@ namespace Cr7Sund.Editor.Excels
             }
         }
 
-        public ExcelReader(string path, string sheetName, int headerIndex = 0, int contentIndex = 0,
+        public ExcelReader(string path, string sheetName, int headerIndex = 0, int contentIndex = 1,
             char delimiter = ';') : base(path, headerIndex, contentIndex, delimiter)
         {
             try
@@ -100,10 +102,15 @@ namespace Cr7Sund.Editor.Excels
             var headers = new List<string>();
             var dataTypes = new List<string>();
             var tmpObj = new List<object>();
-            GetHeaderCellValuesByColIndex(sheet, ref tmpObj, headerStartIndex);
+
+            string firstCell = sheet.GetRow(0).Cells[0].StringCellValue.ToLower();
+            if (firstCell == "id") hasIDColumn = true;
+
+            GetHeaderCellValuesByColIndex(sheet, ref tmpObj, headerStartIndex, hasIDColumn);
             foreach (var item in tmpObj) headers.Add(Convert.ToString(item));
-            GetHeaderCellValuesByColIndex(sheet, ref tmpObj, headerStartIndex + 1);
+            GetHeaderCellValuesByColIndex(sheet, ref tmpObj, headerStartIndex + 1, hasIDColumn);
             foreach (var item in tmpObj) dataTypes.Add(Convert.ToString(item));
+
 
             for (int i = 0; i < headers.Count; i++)
             {
@@ -127,7 +134,7 @@ namespace Cr7Sund.Editor.Excels
 
             foreach (IRow row in sheet)
             {
-                if (current < contentStartIndex)
+                if (current <= contentStartIndex)
                 {
                     current++; // skip header column.
                     continue;
@@ -151,7 +158,7 @@ namespace Cr7Sund.Editor.Excels
             result.Clear();
             IRow row = sheet.GetRow(rowIndex);
             int headerIndex = 0;
-            for (int i = 0; i < row.LastCellNum; i++)
+            for (int i = hasIDColumn ? 1 : 0; i < row.LastCellNum; i++)
             {
                 var cell = row.GetCell(i);
                 if (cell == null)
@@ -177,12 +184,12 @@ namespace Cr7Sund.Editor.Excels
         /// <param name="sheet">Search Sheet</param>
         /// <param name="result">cell results</param>
         /// <param name="rowIndex">row index</param>
-        private void GetHeaderCellValuesByColIndex(ISheet sheet, ref List<object> result, int rowIndex)
+        private void GetHeaderCellValuesByColIndex(ISheet sheet, ref List<object> result, int rowIndex, bool hasIDColumn)
         {
             result.Clear();
             IRow row = sheet.GetRow(rowIndex);
 
-            for (int i = 0; i < row.LastCellNum; i++)
+            for (int i = hasIDColumn ? 1 : 0; i < row.LastCellNum; i++)
             {
                 var cell = row.GetCell(i);
                 if (cell == null)
@@ -205,15 +212,15 @@ namespace Cr7Sund.Editor.Excels
 
         #endregion
 
-        #region Public Methods
+        #region internal Methods
 
-        public bool IsComment(int column) => excludeNoteSet.Contains(column);
-        public Type GetColumnType(int column) => headerList[column].type;
-        public string GetColumnHeader(int column) => headerList[column].header;
-        public int GetSheetColumnLengh() => headerList.Count;
-        public int GetSheetRowLength() => sheet.LastRowNum;
+        internal bool IsComment(int column) => excludeNoteSet.Contains(column);
+        internal Type GetColumnType(int column) => headerList[column].type;
+        internal string GetColumnHeader(int column) => headerList[column].header;
+        internal int GetSheetColumnLengh() => headerList.Count;
+        internal int GetSheetRowLength() => sheet.LastRowNum;
 
-        public int GetMappedColumn(int id)
+        internal int GetMappedColumn(int id)
         {
             if (idDict.TryGetValue(id, out var collumn)) return collumn;
             return -1;
@@ -225,7 +232,7 @@ namespace Cr7Sund.Editor.Excels
         /// <param name="id"></param>
         /// <param name="newId"></param>
         /// <returns></returns>
-        public IRow InsertNewRow(int id, int newId)
+        internal IRow InsertNewRow(int id, int newId)
         {
             if (haveBeenModified) haveBeenModified = false;
             // var row = Sheet.CreateRow(Sheet.LastRowNum + 1); //Sheet is not still persist any more

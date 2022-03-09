@@ -6,29 +6,10 @@
         "UnityEditor.TestRunner",
         "Cr7Sund.Editor"
     ],
-    "includePlatforms": [],
-    "excludePlatforms": [
-        "Android",
-        "CloudRendering",
-        "EmbeddedLinux",
-        "GameCoreScarlett",
-        "GameCoreXboxOne",
-        "iOS",
-        "LinuxStandalone64",
-        "Lumin",
-        "macOSStandalone",
-        "PS4",
-        "PS5",
-        "QNX",
-        "Stadia",
-        "Switch",
-        "tvOS",
-        "WSA",
-        "WebGL",
-        "WindowsStandalone32",
-        "WindowsStandalone64",
-        "XboxOne"
+    "includePlatforms": [
+        "Editor"
     ],
+    "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,
     "precompiledReferences": [

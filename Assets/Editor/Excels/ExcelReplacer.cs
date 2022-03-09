@@ -11,7 +11,7 @@ using System.Text;
 
 namespace Cr7Sund.Editor.Excels
 {
-    public class ExcelReplacer : ExcelQuery, IExcelWriter
+    public class ExcelReplacer : ExcelQuery
     {
 
         Dictionary<string, List<IRow>> oldWorkBookRows;

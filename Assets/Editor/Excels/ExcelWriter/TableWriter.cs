@@ -26,17 +26,18 @@ namespace Cr7Sund.Editor.Excels
 
         internal MyCell GetCell(int k) => cells[k];
 
-        public void AddCell(object obj, Type objType)
+        public void AddCell(object obj, Type objType, bool skipTypeJudge = false)
         {
             MyCell item = new MyCell();
             cells.Add(item);
-            SetCell(obj, objType, cells.Count - 1);
+            SetCell(obj, objType, cells.Count - 1, skipTypeJudge);
         }
 
-        public void SetCell(object obj, Type objType, int index)
+        public void SetCell(object obj, Type objType, int index, bool skipTypeJudge = false)
         {
             MyCell item = cells[index];
-            if (objType == typeof(string))
+
+            if (objType == typeof(string) || skipTypeJudge)
             {
                 item.CellType = CellType.String;
                 item.StringCellValue = obj.ToString();
@@ -66,74 +67,18 @@ namespace Cr7Sund.Editor.Excels
         private List<(string header, Type type)> headerList = new List<(string header, Type)>();
         private List<MyRow> rows = new List<MyRow>();
         private string sheetName;
+        private bool showColumnType;
+        private bool showID;
 
-        public TableWriter(string path, string sheetName, int headerIndex = 0, int contentIndex = 0,
-            char delimiter = ';') : base(path, headerIndex, contentIndex, delimiter)
+        public TableWriter(string path, string sheetName, int headerIndex = 0, int contentIndex = 1, bool showType = false,
+           bool showID = true, char delimiter = ';') : base(path, headerIndex, contentIndex, delimiter)
         {
             this.sheetName = sheetName;
+            this.showID = showID;
+            this.showColumnType = showType;
         }
 
-        public void WriteTo(string newPath = null)
-        {
-
-            if (string.IsNullOrEmpty(newPath))
-            {
-                try
-                {
-                    File.Delete(filePath);
-                    EditorUtility.DisplayProgressBar(" Excel writer", "Write Excel", 0.4f);
-                }
-                catch (Exception e)
-                {
-                    EditorUtility.ClearProgressBar();
-                    throw new Exception("Delete File: ", e);
-                }
-                newPath = filePath;
-            }
-
-            try
-            {
-                using (FileStream fileStream = new FileStream(newPath, FileMode.OpenOrCreate, FileAccess.ReadWrite,
-                           FileShare.ReadWrite))
-                {
-                    fileStream.Position = 0;
-                    IWorkbook workbook = null;
-
-                    string extension = UnityQuickSheet.ExcelQuery.GetSuffix(newPath);
-
-                    if (extension == "xls")
-                        workbook = new HSSFWorkbook();
-                    else if (extension == "xlsx")
-                    {
-#if UNITY_EDITOR_OSX
-                        throw new Exception("xlsx is not supported on OSX.");
-#else
-                        workbook = new XSSFWorkbook();
-#endif
-                    }
-                    else
-                    {
-                        EditorUtility.ClearProgressBar();
-                        throw new Exception("Wrong file.");
-                    }
-
-                    WriteDatas(workbook);
-
-                    workbook.Write(fileStream);
-                    EditorUtility.DisplayProgressBar(" Excel writer", "Write Excel", 1.0f);
-                    Debug.Log("Wirte to excel successfully");
-                }
-
-            }
-            catch (Exception e)
-            {
-                Debug.Log(e + ", " + e.StackTrace);
-                EditorUtility.ClearProgressBar();
-            }
-            EditorUtility.ClearProgressBar();
-        }
-
-        public void WriteDatas(IWorkbook workbook)
+        internal void WriteDatas(IWorkbook workbook)
         {
             var newSheet = workbook.CreateSheet(sheetName);
 
@@ -148,9 +93,12 @@ namespace Cr7Sund.Editor.Excels
                 {
                     var newCell = newRow.CreateCell(k);
                     var oldCell = sheetRows.GetCell(k);
+                    var headerInfo = headerList[k];
 
-                    var type = headerList[k].type;
-                    bool isComment = headerList[k].header.Contains('#');
+                    if (!showColumnType && j == this.contentStartIndex) continue;
+
+                    var type = headerInfo.type;
+                    bool isComment = headerInfo.header.Contains('#');
 
                     if (oldCell == null || oldCell.CellType == CellType.Blank) continue;
                     if (type.IsArray
@@ -158,6 +106,13 @@ namespace Cr7Sund.Editor.Excels
                         || j < contentStartIndex)
                     {
                         newCell.SetCellValue(oldCell.StringCellValue);
+                    }
+                    else if (showColumnType && j == this.contentStartIndex)
+                    {
+                        if (k == 0)
+                            newCell.SetCellType(CellType.Blank);
+                        else
+                            newCell.SetCellValue(oldCell.StringCellValue);
                     }
                     else
                     {
@@ -171,36 +126,70 @@ namespace Cr7Sund.Editor.Excels
 
         public void InitHeaders(params string[] headers)
         {
-            foreach (var item in headers)
+            var tList = new List<Type>();
+            var hList = new List<string>();
+            Type type = typeof(int);
+
+            foreach (string item in headers)
             {
-                headerList.Add((item, typeof(int)));
+                tList.Add(type);
+                hList.Add(item);
             }
+
+            InitHeaders(tList, hList);
         }
 
         public void InitHeaders(List<(string header, Type type)> headers)
         {
+            var hList = new List<string>();
+            var tList = new List<Type>();
             foreach (var item in headers)
             {
-                headerList.Add(item);
+                hList.Add(item.header);
+                tList.Add(item.type);
             }
+
+            InitHeaders(tList, hList);
         }
 
-        public void AddRows(params object[] cells)
+        public void InitHeaders(List<Type> tList, List<string> hList)
         {
-            if (cells.Length != headerList.Count) { Debug.LogError("row datas don not match headers"); return; }
+            if (showID)
+            {
+                hList.Insert(0, "Id");
+                tList.Insert(0, typeof(int));
+            }
+
+            for (int i = 0; i < tList.Count; i++)
+            {
+                headerList.Add((hList[i], tList[i]));
+            }
+
+
+            AddRowList<string>(hList, true);
+            hList.Clear();
+            tList.ForEach((t) => hList.Add(GetSimplifyTypes(t)));
+            AddRowList<string>(hList, true);
+        }
+
+        public void AddRowList<T>(List<T> cells, bool skipTypeJudge = false)
+        {
+            if (cells.Count != headerList.Count) { Debug.LogError("row datas don not match headers"); return; }
             var newRow = new MyRow();
             rows.Add(newRow);
-
-            for (int i = 0; i < cells.Length; i++)
+            for (int i = 0; i < cells.Count; i++)
             {
                 object cell = cells[i];
-                newRow.AddCell(cell, headerList[i].type);
+                newRow.AddCell(cell, headerList[i].type, skipTypeJudge);
             }
         }
 
         public void SetValue(int rowIndex, int columnIndex, object value)
         {
             MyRow row = null;
+            rowIndex = this.contentStartIndex + rowIndex + 1;
+            columnIndex += (showID ? 1 : 0);
+
             if (rows.Count <= rowIndex)
             {
                 row = new MyRow();
@@ -211,6 +200,10 @@ namespace Cr7Sund.Editor.Excels
                 row = rows[rowIndex];
             }
 
+            if (showID && (row.Count == 0))
+            {
+                row.AddCell(rowIndex - 1 - this.contentStartIndex, typeof(int));
+            }
 
             if (row.Count <= columnIndex)
             {
