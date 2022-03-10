@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c20166e7-8f92-4724-832d-27ba3d3d547c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityTinyFrameWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnityTinyFrameWork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Cr7Example.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Cr7Example.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/ExcelWriter/ExcelWriter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/Excels/ExcelWriter/ExcelWriter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests/TestExcelTools.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/TestExcelTools.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests/Tests.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/Tests.asmdef" afterDir="false" />
-    </list>
+    <list default="true" id="c20166e7-8f92-4724-832d-27ba3d3d547c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

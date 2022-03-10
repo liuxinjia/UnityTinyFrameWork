@@ -11,7 +11,7 @@ namespace Cr7SundTools
 {
     public partial class AnalyzeResourcesWindow : EditorWindow
     {
-        private static readonly string[] Contents = { "Sprite", "Texture", "Model" };
+        private static readonly string[] Contents = { "Sprite", "Texture", "Model","Atlas" };
         private static readonly string[] BuildPlatforms = { BuildTargetGroup.Android.ToString() };
         private List<FoldOutData> foldOutDatas = new List<FoldOutData>();
         private Dictionary<string, AssetImporter> importerDict = new Dictionary<string, AssetImporter>();
