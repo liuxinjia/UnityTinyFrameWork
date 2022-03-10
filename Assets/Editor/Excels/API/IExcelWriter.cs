@@ -4,7 +4,7 @@ namespace Cr7Sund.Editor.Excels
 {
     public interface IExcelWriter
     {
-        void SaveExcels();
+        void SaveExcels(bool openURL);
         TableWriter CreateTable(string sheetName, bool showColumnType = false, bool shoID = true);
     }
 }

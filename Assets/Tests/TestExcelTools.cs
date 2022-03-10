@@ -5,29 +5,38 @@ using UnityEngine;
 using UnityEngine.TestTools;
 using Cr7Sund.Editor.Excels;
 using System.Text;
+using Unity.PerformanceTesting;
 
 [PrebuildSetup("TestInit")]
 public class TestExcelTools
 {
-    [Test]
+    [Test, Performance]
     public void CreateExcel()
     {
-        var excelWriter = new ExcelWriter(TestInit.FilePath, 0, 1);
 
-        var table = excelWriter.CreateTable("west", true, true);
-        var sb = new StringBuilder();
-        for (int col = 0; col < TestInit.length - 1; col++) sb.Append($"Num_{col},");
-        sb.Append($"Num_{TestInit.length - 1}");
-        table.InitHeaders(typeof(int), sb.ToString().Split(",")); //last
-
-        for (int i = 0; i < TestInit.datas.Count; i++)
+        Measure.Method(() =>
         {
-            int row = i / TestInit.length;
-            int col = i % TestInit.length;
-            table.SetValue(row, col, TestInit.datas[i]);
-        }
+            var excelWriter = new ExcelWriter(TestInit.FilePath, 0, 1);
 
-        excelWriter.SaveExcels();
+            var table = excelWriter.CreateTable("west", true, true);
+            var sb = new StringBuilder();
+            for (int col = 0; col < TestInit.length - 1; col++) sb.Append($"Num_{col},");
+            sb.Append($"Num_{TestInit.length - 1}");
+            table.InitHeaders(typeof(int), sb.ToString().Split(",")); //last
+
+            for (int i = 0; i < TestInit.datas.Count; i++)
+            {
+                int row = i / TestInit.length;
+                int col = i % TestInit.length;
+                table.SetValue(row, col, TestInit.datas[i]);
+            }
+            excelWriter.SaveExcels();
+
+        })
+            .MeasurementCount(20)
+            .GC()
+            .Run();
+
     }
 
     [Test]
@@ -55,7 +64,7 @@ public class TestExcelTools
     [Test]
     public void ReadExcel()
     {
-        var excelReader = new ExcelReader(TestInit.FilePath,  0, 1);
+        var excelReader = new ExcelReader(TestInit.FilePath, 0, 1);
         var tableReader = excelReader.GetTableReader("west");
         int rowIndex = 2;
         var list = tableReader.GetRowsByID(rowIndex);
@@ -67,7 +76,7 @@ public class TestExcelTools
         }
     }
 
-  
+
     [Test]
     public void CreateMulitpleExcels()
     {
@@ -89,7 +98,7 @@ public class TestExcelTools
 
         excelWriter.SaveExcels();
 
-         excelWriter = new ExcelWriter(TestInit.FilePath, 0, 1);
+        excelWriter = new ExcelWriter(TestInit.FilePath, 0, 1);
         length = 19;
         var table2 = excelWriter.CreateTable("west2", false, false);
         sb = new StringBuilder();

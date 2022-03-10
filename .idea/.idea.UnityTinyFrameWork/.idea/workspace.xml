@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c20166e7-8f92-4724-832d-27ba3d3d547c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityTinyFrameWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnityTinyFrameWork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/ExcelDataHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/Excels/ExcelDataHelper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/ExcelReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/Excels/ExcelReader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/ExcelWriter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/Excels/ExcelWriter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NewExample.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NewExample.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/~$Example.xlsx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Cr7Example.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Cr7Example.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Excels/ExcelWriter/ExcelWriter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/Excels/ExcelWriter/ExcelWriter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests/TestExcelTools.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/TestExcelTools.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests/Tests.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/Tests.asmdef" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,10 +28,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/08373b4687ef4399a6d9ad66ea47c2ed361378/79/361fa4d4/DataRow.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8e8fa28d216a43ec8dcb2258d1f7bf0031000/9a/aa31ba40/InflaterInputBuffer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Demo/Runtime/Service/API/IDemoDebug.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c773653e16b04197aa43bbe6a80f4ae182e800/4e/6a86021f/DeleteMode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/08373b4687ef4399a6d9ad66ea47c2ed361378/a4/96fd7e2f/DataSet.cs" root0="SKIP_HIGHLIGHTING" />
@@ -43,19 +40,17 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c773653e16b04197aa43bbe6a80f4ae182e800/c4/6df173e9/Editor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6fd7ca6bad364c5ea94149697e72140078800/54/f7fbd8a3/XSSFSheet.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a5e93b48eab4da8a4b68a74896e98e9199800/0f/482070a0/HSSFRow.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a5e93b48eab4da8a4b68a74896e98e9199800/ec/1bcaf89d/IRow.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Editor/ExcelPlugin/Editor/ExcelWriterHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4a046f614b9b39301837ac72e738ecfab925f78dad7c2b3552fe2ff96a89/HSSFWorkbook.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a5e93b48eab4da8a4b68a74896e98e9199800/0d/2a1927b1/CellUtil.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b7669a6265a143cb8dfcca4048f53d1c46a800/a2/b04271ed/Number.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.gameframe.sqlite@1.0.2/Tests/Runtime/SQLiteRuntimeTests.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a5e93b48eab4da8a4b68a74896e98e9199800/25/a43d08e0/ISheet.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd824cfb55004855b9e6d51b008c90e4568778/20/ff561584/ValueTuple`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/09654f5254b44255887f6f774978077f16400/53/4ceeb9f0/ZipInputStreamZipEntrySource.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://D:/Phoenix_Android/Assets/Scripts/KLib/BaseExcelVO.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a5e93b48eab4da8a4b68a74896e98e9199800/e0/e6428176/CellType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c773653e16b04197aa43bbe6a80f4ae182e800/87/424c7cb2/EditorApplication.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd824cfb55004855b9e6d51b008c90e4568778/93/696cac88/Convert.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a5e93b48eab4da8a4b68a74896e98e9199800/7e/3019b6b9/IWorkbook.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8e78e6356a5243cba14f9cf2a6dfa89a60130/e0/abb42cb7/SQLiteConnection.cs" root0="SKIP_HIGHLIGHTING" />
@@ -230,27 +225,13 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Editor/Excels/ExcelWriter.cs</url>
           <line>267</line>
-          <properties documentPath="E:\UnityProject\UnityTinyFrameWork\Assets\Editor\Excels\ExcelWriter.cs" initialLine="249" containingFunctionPresentation="method 'ReplaceRow'">
-            <startOffsets>
-              <option value="9744" />
-            </startOffsets>
-            <endOffsets>
-              <option value="9807" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="E:\UnityProject\UnityTinyFrameWork\Assets\Editor\Excels\ExcelWriter.cs" initialLine="249" containingFunctionPresentation="method 'ReplaceRow'" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Editor/Excels/ExcelReader.cs</url>
           <line>204</line>
-          <properties documentPath="E:\UnityProject\UnityTinyFrameWork\Assets\Editor\Excels\ExcelReader.cs" initialLine="204" containingFunctionPresentation="method 'InsertNewRow'">
-            <startOffsets>
-              <option value="6868" />
-            </startOffsets>
-            <endOffsets>
-              <option value="6894" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="E:\UnityProject\UnityTinyFrameWork\Assets\Editor\Excels\ExcelReader.cs" initialLine="204" containingFunctionPresentation="method 'InsertNewRow'" />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

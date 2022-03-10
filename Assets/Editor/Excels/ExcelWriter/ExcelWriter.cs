@@ -29,9 +29,8 @@ namespace Cr7Sund.Editor.Excels
             this.delimiter = delimiter;
         }
 
-        public void SaveExcels()
+        public void SaveExcels(bool openURL = false)
         {
-            EditorUtil.Instance.ClearConsoleLog();
 
             if (File.Exists(filePath))
             {
@@ -92,7 +91,7 @@ namespace Cr7Sund.Editor.Excels
             {
                 Debug.Log(e + ", " + e.StackTrace);
             }
-            Application.OpenURL(filePath);
+            if (openURL) Application.OpenURL(filePath);
         }
 
         public TableWriter CreateTable(string sheetName, bool showColumnType = false, bool showID = true)
