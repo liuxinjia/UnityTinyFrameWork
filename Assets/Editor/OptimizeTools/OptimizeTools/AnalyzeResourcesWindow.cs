@@ -4,17 +4,23 @@ using UnityEditor;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using Cr7Sund.Editor.Excels;
-using System;
+using UnityEditor.Experimental.AssetImporters;
+using System.IO;
 
 namespace Cr7SundTools
 {
     public partial class AnalyzeResourcesWindow : EditorWindow
     {
-        private static readonly string[] Contents = { "Sprite", "Texture", "Model","Atlas" };
+        private static readonly string[] Contents = { "Sprite", "Texture", "Model", "Atlas" };
         private static readonly string[] BuildPlatforms = { BuildTargetGroup.Android.ToString() };
+        private static readonly string[] RealBuildPlatforms = { BuildTargetGroup.Android.ToString(), BuildTargetGroup.iOS.ToString() };
         private List<FoldOutData> foldOutDatas = new List<FoldOutData>();
         private Dictionary<string, AssetImporter> importerDict = new Dictionary<string, AssetImporter>();
+
+        System.Reflection.MethodInfo getStorageMemorySizeLongMethodInfo = null;
+        System.Reflection.MethodInfo getPreviewTextureMethodInfo = null;
+        System.Reflection.MethodInfo setPlatformSettingMethodInfo = null;
+        System.Reflection.MethodInfo getPlatformSettingMethodInfo = null;
 
 
         [MenuItem("Tools/Optimize/AnalyzeResourcesWindow %#&A")]
@@ -50,6 +56,16 @@ namespace Cr7SundTools
             foreach (var content in Contents)
                 foldOutDatas.Add(new FoldOutData(content, actionDict[content].ToArray()));
 
+            InitEditorReflection();
+        }
+
+        private void InitEditorReflection() 
+        {
+            System.Type type = System.Reflection.Assembly.Load("UnityEditor.dll").GetType("UnityEditor.TextureUtil");
+            getStorageMemorySizeLongMethodInfo = type.GetMethod("GetStorageMemorySizeLong", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public);
+            getPreviewTextureMethodInfo = typeof(UnityEditor.U2D.SpriteAtlasExtensions).GetMethod("GetPreviewTextures", BindingFlags.NonPublic | BindingFlags.Static);
+            setPlatformSettingMethodInfo = typeof(UnityEditor.U2D.SpriteAtlasExtensions).GetMethod("SetPlatformSettings", BindingFlags.Public | BindingFlags.Static);
+            getPlatformSettingMethodInfo = typeof(UnityEditor.U2D.SpriteAtlasExtensions).GetMethod("GetPlatformSettings", BindingFlags.Public | BindingFlags.Static);
         }
 
         private void OnGUI()
@@ -98,47 +114,68 @@ namespace Cr7SundTools
         {
             if (values.Count < 2) return;
             //drawtreasure 1 1 10 100
-            string path = EditorUtil.GetProjectAbsolutePath($"{excelName}.xlsx");
-            var excel = new ExcelWriter(path);
-            var excelTable = excel.CreateTable(tableName);
+            string path = Application.dataPath + $"/{excelName}.xlsx";
 
-            List<(string header, Type type)> headers = new List<(string header, Type)>();
+            Excel excel = ExcelHelper.LoadExcel(path);
+            if (excel == null)
+            {
+                excel = ExcelHelper.CreateExcel(path);
+                excel.Tables[0].TableName = tableName;
+            }
+
+            int tableIndex = excel.Tables.Count; //deafult tables length is one when CreateNewExcel 
+            for (int j = 0; j < excel.Tables.Count; j++)
+            {
+                ExcelTable item = excel.Tables[j];
+                if (item.TableName == tableName)
+                {
+                    tableIndex = j;
+                    break;
+                }
+            }
+
+            if (tableIndex == excel.Tables.Count)
+                excel.AddTable(tableName);
+            ExcelTable excelTable = excel.Tables[tableIndex];
+
+
+            int startRow = 1;
+            excelTable.SetValue(startRow, 1, "ID");
+            excelTable.SetValue(startRow, 2, "资源名字");
+            excelTable.SetValue(startRow, 3, "资源路径");
 
             for (int colIndex = 0; colIndex < values.Count; colIndex++)
             {
                 var titles = values[colIndex].Split(',');
                 if (colIndex == 0)
                 {
-                    headers.Add(("资源名字", typeof(string)));
-                    headers.Add(("资源路径", typeof(string)));
-
                     for (int i = 0; i < titles.Length; i++)
                     {
-                        headers.Add((titles[i], typeof(string)));
+                        excelTable.SetValue(colIndex + startRow, i + 4, titles[i]);
                     }
-                    excelTable.InitHeaders(headers);
                 }
                 else
                 {
-                    for (int i = 0; i < titles.Length-1; i++)
+                    excelTable.SetValue(colIndex + startRow, 1, colIndex.ToString());
+                    for (int i = 0; i < titles.Length; i++)
                     {
                         if (i == 0)
                         {
                             var fileNames = titles[i].Split('/');
                             var fileName = fileNames[fileNames.Length - 1].Split('.');
-                            excelTable.SetValue(colIndex - 1, i, fileName[0]);
-                            excelTable.SetValue(colIndex-1, i + 1, titles[i]);
+                            excelTable.SetValue(colIndex + startRow, i + 2, fileName[0]);
+                            excelTable.SetValue(colIndex + startRow, i + 3, titles[i]);
                         }
                         else
                         {
-                            excelTable.SetValue(colIndex - 1, 1 + i, titles[i]);
+                            excelTable.SetValue(colIndex + startRow, 3 + i, titles[i]);
                         }
                     }
                 }
             }
 
 
-            excel.SaveExcels();
+            ExcelHelper.SaveExcel(excel, path);
 
         }
 
@@ -147,6 +184,46 @@ namespace Cr7SundTools
             System.Reflection.MethodInfo methodInfo = typeof(AnalyzeResourcesWindow).GetMethod(actionName, System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
             methodInfo.Invoke(this, null);
         }
+
+        private long GetInspectorMemory(UnityEngine.Object obj)
+        {
+            if (obj == null)
+            {
+                Debug.Log("obj is empty, unable to get the hard disk size");
+                return 0;
+            }
+            Sprite sprite = obj as Sprite;
+            Texture texture = null;
+            if (sprite != null)
+            {
+                texture = sprite.texture;
+            }
+            if (texture == null)
+            {
+                texture = obj as Texture;
+            }
+            if (texture != null)
+            {
+                // Debug.Log("Memory usage:" + EditorUtility.FormatBytes(UnityEngine.Profiling.Profiler.GetRuntimeMemorySizeLong(texture)));
+                // Debug.Log("Hard disk occupation:" + EditorUtility.FormatBytes((int)GetStorageMemorySizeMethodInfo.Invoke(null, new object[] { texture })));
+                return (long)getStorageMemorySizeLongMethodInfo.Invoke(null, new object[] { texture });
+            }
+            return 0;
+        }
+
+        private void GroupAssetToFolder(string[] assetPath, string destPath)
+        {
+            if (!Directory.Exists(destPath))
+            {
+                Directory.CreateDirectory(destPath);
+            }
+
+            foreach (var path in assetPath)
+            {
+                AssetDatabase.MoveAsset(path, destPath + path.Substring(path.LastIndexOf('/')));
+            }
+        }
+
         #endregion
     }
 
@@ -176,16 +253,16 @@ namespace Cr7SundTools
 
 
 
-        public static UnityEditor.AssetImporters.SourceTextureInformation GetSourceTextureInformation(this TextureImporter importer)
+        public static SourceTextureInformation GetSourceTextureInformation(this TextureImporter importer)
         {
             if (GetSourceTextureInformationMethodInfo == null) GetSourceTextureInformationMethodInfo = typeof(TextureImporter).GetMethod("GetSourceTextureInformation", BindingFlags.Instance | BindingFlags.NonPublic);
-            return GetSourceTextureInformationMethodInfo.Invoke(importer, null) as UnityEditor.AssetImporters.SourceTextureInformation;
+            return GetSourceTextureInformationMethodInfo.Invoke(importer, null) as SourceTextureInformation;
         }
 
         public static void getSourceTextureWidthAndHeight(this TextureImporter importer, out int width, out int height)
         {
 #if UNITY_2021_2_OR_NEWER
-            importer.GetSourceTextureWidthAndHeight(out width, out height);
+            importer.GetSourceTextureWidthAndHeight(out width, out int height);
 #else
             var info = importer.GetSourceTextureInformation();
             if (info.width == -1)

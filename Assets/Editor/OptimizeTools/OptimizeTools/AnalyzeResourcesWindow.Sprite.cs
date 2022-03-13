@@ -7,14 +7,16 @@ namespace Cr7SundTools
 
     public partial class AnalyzeResourcesWindow
     {
-        string[] searchInFolders = new[] {
-                 "Assets/" };
+        public List<string> headers = new List<string>();
 
         public void AnalyzeSprites()
         {
+            string path = Application.dataPath + $"/SpriteInfo.xlsx";
+            System.IO.File.Delete(path);
             AnalyzeSpriteSize();
             AnalyzeSpriteFormat();
             AnalyzeSpriteOtherSettings();
+            Application.OpenURL(path);
         }
 
         /// <summary>
@@ -23,8 +25,9 @@ namespace Cr7SundTools
         /// </summary>
         public void AnalyzeSpriteFormat()
         {
-
-            var textureGUIDs = AssetDatabase.FindAssets("t:texture2D", searchInFolders);
+            var textureGUIDs = AssetDatabase.FindAssets("t:texture2D", new[] {
+                 "Assets/Sprites/Small","Assets/bundles/Atlas/large",
+                 "Assets/Localize/TW/bundles/Atlas/large","Assets/Localize/TW/Sprites/Small" });
 
             var invalidTextures = new HashSet<string>();
             for (int i = 0; i < textureGUIDs.Length; i++)
@@ -98,6 +101,9 @@ namespace Cr7SundTools
 
                 EditorUtility.DisplayProgressBar("reimport texture " + i + "/" + textureGUIDs.Length, path, (float)i / textureGUIDs.Length);
 
+                if (path.Contains("sampleTextures")) continue;
+                if (path.Contains("large")) continue;
+                if (!path.Contains("Sprites")) continue;
                 bool modified = false;
                 TextureImporter importer;
                 if (!importerDict.ContainsKey(path))
@@ -159,7 +165,9 @@ namespace Cr7SundTools
         public void AnalyzeSpriteOtherSettings()
         {
 
-            var textureGUIDs = AssetDatabase.FindAssets("t:texture2D", searchInFolders);
+            var textureGUIDs = AssetDatabase.FindAssets("t:texture2D", new[] {
+                 "Assets/Sprites/Small","Assets/bundles/Atlas/large",
+                 "Assets/Localize/TW/bundles/Atlas/large","Assets/Localize/TW/Sprites/Small" });
 
             var invalidTextures = new HashSet<string>();
             for (int i = 0; i < textureGUIDs.Length; i++)
@@ -218,15 +226,126 @@ namespace Cr7SundTools
 
         }
 
-        public void AnalyzeSpriteTransparency()
+        public void AnalyzeSpriteTransparentFormat()
         {
             //alpha chanel
-            EditorGUILayout.ObjectField(Selection.activeGameObject, typeof(Texture), false);
+            var textureGUIDs = AssetDatabase.FindAssets("t:texture2D", new[] { "Assets/", "Assets" });
+
+            var invalidTextures = new HashSet<string>();
+            for (int i = 0; i < textureGUIDs.Length; i++)
+            {
+                string guid = textureGUIDs[i];
+                var path = AssetDatabase.GUIDToAssetPath(guid);
+                EditorUtility.DisplayProgressBar("reimport texture " + i + "/" + textureGUIDs.Length, path, (float)i / textureGUIDs.Length);
+
+
+                bool hasInvalidTextures = false;
+                TextureImporter importer;
+                if (!importerDict.ContainsKey(path))
+                    importer = TextureImporter.GetAtPath(path) as TextureImporter;
+                else
+                    importer = importerDict[path] as TextureImporter;
+
+                if (importer == null) continue;
+
+                var hasAlpha = importer.DoesSourceTextureHaveAlpha();
+                if (hasAlpha) continue; //We only want to consider don have alpha 
+
+                if (Regex.IsMatch(path.ToLower(), "sample")) continue;
+                var textureSettings = new List<TextureImporterPlatformSettings>(BuildPlatforms.Length + 1);
+                // textureSettings.Add(importer.GetDefaultPlatformTextureSettings());
+
+                foreach (var platform in BuildPlatforms)
+                {
+                    textureSettings.Add(importer.GetPlatformTextureSettings(platform));
+                }
+
+                string debugInfo = path + ",";
+                // settings instance will be immediately change, you can see in inspector
+                foreach (var textureSetting in textureSettings)
+                {
+                    var textureFormat = textureSetting.format;
+
+                    if (textureFormat == TextureImporterFormat.Automatic
+                    || textureFormat == TextureImporterFormat.ETC2_RGBA8
+                    || textureFormat == TextureImporterFormat.ETC2_RGB4_PUNCHTHROUGH_ALPHA
+                        || Regex.IsMatch(textureFormat.ToString(), "ASTC_RGBA"))
+                    { hasInvalidTextures = true; debugInfo += $"{textureFormat},"; }
+                }
+                if (hasInvalidTextures) invalidTextures.Add(debugInfo);
+
+            }
+            EditorUtility.ClearProgressBar();
+
+            List<string> debugInfos = new List<string>(invalidTextures);
+            debugInfos.Insert(0, "格式");
+            ExportSpiteData2Excell(debugInfos, "是否是透明通道");
+            Application.OpenURL(Application.dataPath + $"/SpriteInfo.xlsx");
 
         }
 
 
-        
+        public void AnalyzeSpriteUnNormalSize()
+        {
+            var textureGUIDs = AssetDatabase.FindAssets("t:texture2D", new[] { "Assets/Sprites/UIItem" });
+
+            var beyondSizeTextures = new HashSet<string>();
+            var invalidTextures = new HashSet<string>();
+            for (int i = 0; i < textureGUIDs.Length; i++)
+            {
+                string guid = textureGUIDs[i];
+                var path = AssetDatabase.GUIDToAssetPath(guid);
+
+                EditorUtility.DisplayProgressBar("reimport texture " + i + "/" + textureGUIDs.Length, path, (float)i / textureGUIDs.Length);
+
+                bool modified = false;
+                TextureImporter importer;
+                if (!importerDict.ContainsKey(path))
+                    importer = TextureImporter.GetAtPath(path) as TextureImporter;
+                else
+                    importer = importerDict[path] as TextureImporter;
+
+                if (importer == null) continue;
+
+                var textureSettings = new List<TextureImporterPlatformSettings>(BuildPlatforms.Length + 1);
+                // textureSettings.Add(importer.GetDefaultPlatformTextureSettings());
+
+                foreach (var platform in BuildPlatforms)
+                {
+                    textureSettings.Add(importer.GetPlatformTextureSettings(platform));
+                }
+
+                // settings instance will be immediately change, you can see in inspector
+                foreach (var textureSetting in textureSettings)
+                {
+                    var textureFormat = textureSetting.format;
+                    if (importer.textureType != TextureImporterType.Sprite) continue;
+
+                    importer.getSourceTextureWidthAndHeight(out int width, out int height);
+                    // if (textureSetting.maxTextureSize > 1024)
+                    {
+
+                        if ((width != 128 || height != 128)
+                        && (width != 64 || height != 64)
+                        && ((width != 256 || height != 256)))
+                        {
+                            string textureDebugInfo = string.Format("{0},{1}x{2},", path, width, height);
+                            if (!beyondSizeTextures.Contains(textureDebugInfo)) beyondSizeTextures.Add(textureDebugInfo);
+                        }
+                    }
+                }
+
+                if (modified)
+                    if (!importerDict.ContainsKey(path)) importerDict.Add(path, importer);
+            }
+            EditorUtility.ClearProgressBar();
+
+
+            List<string> logInfos = new List<string>(beyondSizeTextures);
+            logInfos.Insert(0, "图片尺寸");
+            ExportSpiteData2Excell(logInfos, "文件夹小图不合理");
+        }
+
         private void ExportSpiteData2Excell(List<string> values, string tableName = "effect")
         {
             ExportData2Excel(values, tableName, "SpriteInfo");
