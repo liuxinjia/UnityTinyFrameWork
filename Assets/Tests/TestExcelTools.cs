@@ -13,7 +13,6 @@ public class TestExcelTools
     [Test, Performance]
     public void CreateExcel()
     {
-
         Measure.Method(() =>
         {
             var excelWriter = new ExcelWriter(TestInit.FilePath, 0, 1);
