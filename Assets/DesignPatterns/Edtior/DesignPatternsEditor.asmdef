@@ -1,0 +1,19 @@
+{
+    "name": "DesignPatternsEditor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:24d0202424b5e6244a11bfc0a21eb4b4",
+        "GUID:181bf1a679bfb924dbe6ab2bc09ef605"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
