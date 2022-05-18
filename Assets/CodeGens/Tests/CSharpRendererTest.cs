@@ -207,5 +207,57 @@ namespace UnityCodeGen.Test
             var location = System.Reflection.Assembly.GetExecutingAssembly().Location;
             System.IO.File.WriteAllText(location + ".result3.cs", result);
         }
+
+        [Test]
+        public void Test4()
+        {
+            var builder = new AstBuilder();
+            var classBuilder = builder.WithClass()
+                .WithName("Foo")
+                .IsPartial(true);
+
+            var constructorBuilder = classBuilder.WithConstructor()
+                .WithVisibility(AccessType.Public);
+
+            var methodBuilder = classBuilder.WithMethod()
+                .WithName("Bar");
+
+            methodBuilder.WithBody()
+                .WithLine("for(var i = 0; i < 10; i++)")
+                .WithLine("{{")
+                .WithLine("}}");
+
+            var secondMethodBuilder = classBuilder.WithMethod()
+                .WithName("FooBar")
+                .WithVisibility(AccessType.Public)
+                .WithTypeParameter("T")
+                .WithTypeParameter("U");
+
+            secondMethodBuilder.WithParameter()
+                .WithName("barFoo")
+                .WithType("T");
+
+            secondMethodBuilder.WithParameter()
+                .WithName("fooBar")
+                .WithType("U");
+
+            secondMethodBuilder.WithTypeConstraint()
+                .WithTypeParameterName("T")
+                .WithStructConstraint();
+
+            secondMethodBuilder.WithTypeConstraint()
+                .WithTypeParameterName("U")
+                .WithStructConstraint()
+                .WithConstraint("IDisposable");
+
+            var ast = builder.Build();
+
+            var renderer = new CSharpRenderer();
+
+            var result = renderer.Render(ast);
+
+            var location = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            System.IO.File.WriteAllText(location + ".result3.cs", result);
+        }
     }
 }

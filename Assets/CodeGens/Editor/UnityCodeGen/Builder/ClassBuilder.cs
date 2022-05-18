@@ -31,13 +31,13 @@ namespace UnityCodeGen.Builder
             return _constructorBuilder;
         }
 
-        public ClassBuilder IsPartial(bool value)
+        public ClassBuilder IsPartial(bool value = true)
         {
             _isPartial = value;
             return this;
         }
 
-        public ClassBuilder IsStatic(bool value)
+        public ClassBuilder IsStatic(bool value = true)
         {
             _isStatic = value;
             return this;

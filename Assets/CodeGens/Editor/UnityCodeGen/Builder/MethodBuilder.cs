@@ -52,19 +52,19 @@ namespace UnityCodeGen.Builder
             return typeConstraintBuilder;
         }
 
-        public MethodBuilder IsStatic(bool value)
+        public MethodBuilder IsStatic(bool value = true)
         {
             _isStatic = value;
             return this;
         }
 
-        public MethodBuilder IsAbstract(bool value)
+        public MethodBuilder IsAbstract(bool value = true)
         {
             _isAbstract = value;
             return this;
         }
 
-        public MethodBuilder IsVirtual(bool value)
+        public MethodBuilder IsVirtual(bool value = true)
         {
             _isVirtual = value;
             return this;
