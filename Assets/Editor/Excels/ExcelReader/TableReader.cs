@@ -12,14 +12,8 @@ namespace Cr7Sund.Editor.Excels
 {
     public class TableReader : ExcelQuery, IExcelReader
     {
-        private readonly ISheet Sheet = null;
-        protected HashSet<int> excludeNoteSet;
-        protected Dictionary<int, int> idDict;
 
-
-
-        public TableReader(string path, string sheetName, int headerIndex = 0, int contentIndex = 1,
-            char delimiter = ';') : base(path, sheetName, headerIndex, contentIndex, delimiter)
+        public TableReader(string path, string sheetName, char delimiter = ';') : base(path, sheetName, delimiter)
         {
             try
             {
@@ -48,14 +42,12 @@ namespace Cr7Sund.Editor.Excels
 
                     if (!string.IsNullOrEmpty(sheetName))
                     {
-                        Sheet = workbook.GetSheet(sheetName);
-                        if (Sheet == null)
+                        var sheet = workbook.GetSheet(sheetName);
+                        if (sheet == null)
                             Debug.LogErrorFormat("Cannot find sheet '{0}'.", sheetName);
 
-
-                        InitHeaders(Sheet);
-                        if (showID) InitSheetIDs(Sheet);
-                        InitContents(Sheet);
+                        InitRowDatas(sheet);
+                        InitHeaders(sheet);
                     }
                 }
             }
@@ -66,7 +58,7 @@ namespace Cr7Sund.Editor.Excels
         }
 
 
-        #region Private Methods
+        #region Init Datas 
 
         /// <summary>
         /// Get header Info
@@ -74,155 +66,43 @@ namespace Cr7Sund.Editor.Excels
         /// <param name="sheet"></param>
         private void InitHeaders(ISheet sheet)
         {
-            if (headerList == null)
-            {
-                headerList = new List<(string, Type)>(sheet.LastRowNum + 1);
-            }
-
-            if (excludeNoteSet == null)
-            {
-                excludeNoteSet = new HashSet<int>();
-            }
-
-            var headers = new List<string>();
-            var dataTypes = new List<string>();
-            var tmpObj = new List<object>();
-
             string firstCell = sheet.GetRow(0).Cells[0].StringCellValue.ToLower();
-            if (firstCell == "id") showID = true;
 
-            GetHeaderCellValuesByColIndex(sheet, ref tmpObj, headerStartIndex);
-            foreach (var item in tmpObj) headers.Add(Convert.ToString(item));
-            GetHeaderCellValuesByColIndex(sheet, ref tmpObj, headerStartIndex + 1);
-            foreach (var item in tmpObj) { dataTypes.Add(item == null ? null : Convert.ToString(item)); }
-            showColumnType = tmpObj.Count != 0;
-
-
-            for (int i = 0; i < headers.Count; i++)
+            var headerRowData = rowDatas[HeaderStartIndex];
+            var typeRowData = rowDatas[HeaderStartIndex + 1];
+            for (int i = 0; i < headerRowData.Count; i++)
             {
-                string header = headers[i];
-                headerList.Add((header, dataTypes.Count == 0 ? typeof(string) : dataTypes[i] == null ? typeof(string) :
-                GetMapDataTypes(dataTypes[i])));
+                var header = headerRowData.GetCell(i).StringCellValue;
+                var typeCell = typeRowData.GetCell(i);
+                headerList.Add(
+                    new HeaderData()
+                    {
+                        header = header,
+                        type = typeCell.CellType == CellType.Blank ? typeof(int) :
+                         GetMapDataTypes(typeCell.StringCellValue)
+                    }
+                );
             }
         }
 
-        /// <summary>
-        /// Get Row ID Relationship
-        /// </summary>
-        /// <param name="sheet"></param>
-        private void InitSheetIDs(ISheet sheet)
+        private void InitRowDatas(ISheet sheet)
         {
-            int current = 0;
-
-            if (idDict == null)
-            {
-                idDict = new Dictionary<int, int>(sheet.LastRowNum + 1);
-            }
-
-            foreach (IRow row in sheet)
-            {
-                if (current <= contentStartIndex)
-                {
-                    current++; // skip header column.
-                    continue;
-                }
-
-                ICell cell = row.GetCell(0);
-
-                idDict.Add((int)cell.NumericCellValue, current);
-                current++;
-            }
-        }
-
-        /// <summary>
-        /// Get Cells via column index
-        /// </summary>
-        /// <param name="sheet">Search Sheet</param>
-        /// <param name="result">cell results</param>
-        /// <param name="rowIndex">row index</param>
-        private void GetContentCellValuesByColIndex(ISheet sheet, ref List<object> result, int rowIndex)
-        {
-            result.Clear();
-            IRow row = sheet.GetRow(rowIndex);
-            int headerIndex = showID ? 1 : 0;
-            for (int i = showID ? 1 : 0; i < row.LastCellNum -( showID ? 1 : 0); i++)
-            {
-                var cell = row.GetCell(i);
-                if (cell == null)
-                {
-                    // null or empty column is found. Note column index starts from 0.
-                    Debug.LogWarningFormat("Null or empty column is found at {0}-{1}.\n", rowIndex, i);
-                    continue;
-                }
-                else if (cell.CellType == CellType.Blank)
-                {
-                    continue;
-                }
-
-                if (excludeNoteSet.Contains(i)) continue;
-                result.Add(ConvertFrom(cell, headerList[headerIndex++].type));
-            }
-        }
-
-        /// <summary>
-        /// Get Header Cells via column index
-        /// </summary>
-        /// <param name="sheet">Search Sheet</param>
-        /// <param name="result">cell results</param>
-        /// <param name="rowIndex">row index</param>
-        private void GetHeaderCellValuesByColIndex(ISheet sheet, ref List<object> result, int rowIndex)
-        {
-            result.Clear();
-            IRow row = sheet.GetRow(rowIndex);
-            if (row == null) return;
-            for (int i = 0; i < row.LastCellNum; i++)
-            {
-                var cell = row.GetCell(i);
-                if (cell == null)
-                {
-                    // null or empty column is found. Note column index starts from 0.
-                    Debug.LogWarningFormat("Null or empty column is found at {0}-{1}.\n", rowIndex, i);
-                    continue;
-                }
-
-                if (cell.CellType == CellType.String && cell.StringCellValue.Contains("#"))
-                {
-                    excludeNoteSet.Add(i);
-                }
-
-                // if (excludeNoteSet.Contains(i)) continue;
-                if (cell.CellType == CellType.Blank)
-                {
-                    result.Add(null);
-                    continue;
-                }
-                result.Add(cell.StringCellValue);
-            }
-        }
-
-        private List<IRow> GetAllRows(ISheet sheet)
-        {
-            var result = new List<IRow>();
-            //  sheet.LastRowNum is one more than the real rows number 
+            ///Used for 
+            /// 1. search cache
+            /// 2. keep this table while modifying other tables
             for (var i = sheet.FirstRowNum; i <= sheet.LastRowNum; i++)
             {
-                result.Add(sheet.GetRow(i));
+                var newRow = RowData.GetRowData(sheet.GetRow(i));
+                rowDatas.Add(newRow);
             }
-            return result;
         }
 
-        private void InitContents(ISheet sheet)
-        {
-            for (var i = sheet.FirstRowNum; i <= sheet.LastRowNum; i++)
-            {
-                var newRow = MyRow.ToMyRow(sheet.GetRow(i));
-                rows.Add(newRow);
-            }
-        }
+
+
 
         #endregion
 
-        #region internal Methods
+        #region public Methods
 
 
         /// <summary>
@@ -232,37 +112,39 @@ namespace Cr7Sund.Editor.Excels
         /// <returns></returns>
         public List<object> GetRowsByID(int id)
         {
-            if (idDict == null) { Debug.LogError("Don't exist ids"); return null; }
             var result = new List<object>();
 
-            if (idDict.TryGetValue(id, out int rowIndex))
+            var rowCounts = rowDatas.Count;
+
+            if (id < 0 || id >= rowCounts - ContentStartIndex) throw new ArgumentOutOfRangeException($"{id} is out of index");
+
+            for (int i =  1 ; i < rowDatas[id].Count; i++) // start form id column
             {
-                GetContentCellValuesByColIndex(Sheet, ref result, rowIndex);
-            }
-            else
-            {
-                Debug.LogError($"Don't exist {id}");
+                result.Add(rowDatas[id + ContentStartIndex].GetCell(i).GetValue());
             }
 
             return result;
         }
 
-        public List<object> GetAllCells()
+        public object GetCell(int id, int title)
         {
-            var rows = GetAllRows(Sheet);
-            if (rows.Count < 1) return null;
-            var result = new List<object>(rows.Count * (rows[0].LastCellNum - rows[0].FirstCellNum));
-            foreach (var row in rows)
+            var result = GetRowsByID(id);
+
+            for (int i = 0; i < headerList.Count; i++)
             {
-                for (int i = row.FirstCellNum; i < row.LastCellNum; i++)
+                var item = headerList[i];
+                if (item.header.Equals(title))
                 {
-                    result.Add(row.GetCell(i));
+                    return result[i];
                 }
             }
 
-            return result;
+            return null;
         }
+
 
         #endregion
     }
+
+
 }

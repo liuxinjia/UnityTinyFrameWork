@@ -15,17 +15,14 @@ namespace Cr7Sund.Editor.Excels
     {
         private Dictionary<string, TableReader> tableReaders = new Dictionary<string, TableReader>();
         private string filePath = string.Empty;
-        private int headerStartIndex = 0;
-        private int contentStartIndex = 2;
+
         private char delimiter;
         public List<string> sheetNames = new List<string>();
 
-        public ExcelReader(string path, int headerIndex = 0, int contentIndex = 1,
-            char delimiter = ';')
+        public ExcelReader(string path, char delimiter = ';')
         {
             this.filePath = path;
-            this.headerStartIndex = headerIndex;
-            this.contentStartIndex = contentIndex;
+
             this.delimiter = delimiter;
 
             {
@@ -54,7 +51,7 @@ namespace Cr7Sund.Editor.Excels
                             throw new Exception("Wrong file.");
                         }
 
-                       
+
                         for (int i = 0; i < workbook.NumberOfSheets; i++)
                         {
                             sheetNames.Add(workbook.GetSheetName(i));
@@ -72,7 +69,7 @@ namespace Cr7Sund.Editor.Excels
 
         public TableReader GetTableReader(string sheetName)
         {
-            if (!tableReaders.ContainsKey(sheetName)) tableReaders.Add(sheetName, new TableReader(filePath, sheetName, headerStartIndex, contentStartIndex, delimiter));
+            if (!tableReaders.ContainsKey(sheetName)) tableReaders.Add(sheetName, new TableReader(filePath, sheetName, delimiter));
             return tableReaders[sheetName];
         }
     }

@@ -8,35 +8,35 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using System.ComponentModel;
+using NPOI.SS.Util;
 
 namespace Cr7Sund.Editor.Excels
 {
     public class ExcelQuery
     {
 
-        protected List<(string header, Type type)> headerList = new List<(string header, Type)>();
-        protected List<MyRow> rows = new List<MyRow>();
+        protected List<HeaderData> headerList = new List<HeaderData>();
+        protected List<RowData> rowDatas = new List<RowData>();
         protected string sheetName;
 
         protected string filePath = string.Empty;
-        protected int headerStartIndex = 0;
-        protected int contentStartIndex = 2;
-        protected char delimiter;
-        protected bool showColumnType;
-        protected bool showID;
 
+        protected char delimiter;
+
+
+        protected const int HeaderStartIndex = 0;
+        protected const int ContentStartIndex = 4;
 
         protected readonly TypeConverter converter;
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        public ExcelQuery(string path, string sheetName, int headerIndex = 0, int contentIndex = 0, char delimiter = ';')
+        public ExcelQuery(string path, string sheetName, char delimiter = ';')
         {
             this.filePath = path;
             this.sheetName = sheetName;
-            this.headerStartIndex = headerIndex;
-            this.contentStartIndex = contentIndex;
+
             this.delimiter = delimiter;
             this.converter = new TypeConverter(delimiter);
         }
@@ -47,41 +47,38 @@ namespace Cr7Sund.Editor.Excels
             var newSheet = workbook.CreateSheet(sheetName);
 
             //Iterate through each sheet, sheet -> rows
-            for (int j = 0; j < rows.Count; j++)
+            for (int rowIndex = 0; rowIndex < this.rowDatas.Count; rowIndex++)
             {
-                var newRow = newSheet.CreateRow(j);
-                var sheetRows = rows[j];
+                var newRow = newSheet.CreateRow(rowIndex);
+                var rowData = this.rowDatas[rowIndex];
 
                 // Iterate through eachRow, row -> cells 
-                for (int k = 0; k < sheetRows.Count; k++)
+                for (int columnIndex = 0; columnIndex < rowData.Count; columnIndex++)
                 {
-                    var newCell = newRow.CreateCell(k);
-                    var oldCell = sheetRows.GetCell(k);
-                    var headerInfo = headerList[k];
-
-                    if (!showColumnType && j == this.contentStartIndex) continue;
-
+                    var newCell = newRow.CreateCell(columnIndex);
+                    var cellData = rowData.GetCell(columnIndex);
+                    var headerInfo = headerList[columnIndex];
                     var type = headerInfo.type;
-                    bool isComment = headerInfo.header.Contains('#');
 
-                    if (oldCell == null || oldCell.CellType == CellType.Blank) continue;
+                    if (cellData == null || cellData.CellType == CellType.Blank) continue; // skip empty type
+
                     if (type.IsArray
-                        || isComment
-                        || j < contentStartIndex)
+                        || rowIndex == HeaderStartIndex)
                     {
-                        newCell.SetCellValue(oldCell.StringCellValue);
+                        newCell.SetCellValue(cellData.StringCellValue);
                     }
-                    else if (showColumnType && j == this.contentStartIndex)
+                    else if (rowIndex < ContentStartIndex) // handle not -content type
                     {
-                        if (k == 0)
+                        if (columnIndex == 0)
                             newCell.SetCellType(CellType.Blank);
-                        else if (oldCell.CellType != CellType.Blank && oldCell.StringCellValue != null)
-                            newCell.SetCellValue(oldCell.StringCellValue);
+                        else if (cellData.CellType != CellType.Blank && cellData.StringCellValue != null)
+                            newCell.SetCellValue(cellData.StringCellValue);
                     }
                     else
                     {
-                        ConvertTo(type, oldCell, newCell);
+                        ConvertTo(type, cellData, newCell);
                     }
+
                 }
             }
         }
@@ -325,7 +322,7 @@ namespace Cr7Sund.Editor.Excels
         /// <summary>
         /// Convert type of cell value to its predefined type which is specified in the sheet's ScriptMachine setting file.
         /// </summary>
-        protected void ConvertTo(Type t, MyCell oldCell, ICell newCell)
+        protected void ConvertTo(Type t, CellData oldCell, ICell newCell)
         {
 
             if (t == typeof(float) || t == typeof(double) || t == typeof(short) || t == typeof(int) || t == typeof(long))
@@ -396,16 +393,16 @@ namespace Cr7Sund.Editor.Excels
     }
 
 
-    public class MyCell
+    public class CellData
     {
         public CellType CellType;
         public string StringCellValue;
         public double NumericCellValue;
         public bool BooleanCellValue;
 
-        public static MyCell ToMyCell(ICell cell)
+        public static CellData GetCellData(ICell cell)
         {
-            var newCell = new MyCell();
+            var newCell = new CellData();
             newCell.CellType = cell.CellType;
 
             if (cell.CellType == CellType.String)
@@ -416,27 +413,38 @@ namespace Cr7Sund.Editor.Excels
                 newCell.BooleanCellValue = cell.BooleanCellValue;
             return newCell;
         }
+
+        public object GetValue()
+        {
+            if (CellType == CellType.String)
+                return StringCellValue;
+            else if (CellType == CellType.Numeric)
+                return NumericCellValue;
+            else if (CellType == CellType.Boolean)
+                return BooleanCellValue;
+            return null;
+        }
     }
 
-    public class MyRow
+    public class RowData
     {
-        private List<MyCell> cells = new List<MyCell>();
+        private List<CellData> cells = new List<CellData>();
         public int Count => cells.Count;
 
-        internal MyCell GetCell(int k) => cells[k];
+        internal CellData GetCell(int k) => cells[k];
 
-        public void AddCell(object obj, Type objType, bool skipTypeJudge = false)
+        public void AddCell(object obj, Type objType, bool isString = false)
         {
-            MyCell item = new MyCell();
+            CellData item = new CellData();
             cells.Add(item);
-            SetCell(obj, objType, cells.Count - 1, skipTypeJudge);
+            SetCell(obj, objType, cells.Count - 1, isString);
         }
 
-        public void SetCell(object obj, Type objType, int index, bool skipTypeJudge = false)
+        public void SetCell(object obj, Type objType, int index, bool isString = false)
         {
-            MyCell item = cells[index];
+            CellData item = cells[index];
 
-            if (objType == typeof(string) || skipTypeJudge)
+            if (objType == typeof(string) || isString)
             {
                 item.CellType = CellType.String;
                 item.StringCellValue = obj.ToString();
@@ -459,17 +467,25 @@ namespace Cr7Sund.Editor.Excels
         }
 
 
-        public static MyRow ToMyRow(IRow row)
+        public static RowData GetRowData(IRow row)
         {
-            var newRow = new MyRow();
+            var newRow = new RowData();
             if (row != null)
             {
                 for (var j = row.FirstCellNum; j < row.LastCellNum; j++)
                 {
-                    newRow.cells.Add(MyCell.ToMyCell(row.GetCell(j)));
+                    newRow.cells.Add(CellData.GetCellData(row.GetCell(j)));
                 }
             }
             return newRow;
         }
     }
+
+    public class HeaderData
+    {
+        public string header;
+        public Type type;
+        public string comment;
+    }
+
 }

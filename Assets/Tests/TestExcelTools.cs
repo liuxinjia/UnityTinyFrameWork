@@ -10,111 +10,100 @@ using Unity.PerformanceTesting;
 [PrebuildSetup("TestInit")]
 public class TestExcelTools
 {
+    #region Test Entries
+
+    [Test]
+    public void TestValidateExcel()
+    {
+        Write(TestInit.TableName_1);
+        Read(TestInit.TableName_1);
+    }
+
+    [Test]
+    public void TestCreateMulitpleExcels()
+    {
+        Write(TestInit.TableName_1);
+        Read(TestInit.TableName_1);
+        Write(TestInit.TableName_2);
+        Read(TestInit.TableName_2);
+
+        Write(TestInit.TableName_3);
+        Read(TestInit.TableName_3);
+        Write(TestInit.TableName_4);
+        Read(TestInit.TableName_4);
+    }
+
+
     [Test, Performance]
-    public void CreateExcel()
+    public void Profile_WriteExcel()
     {
 
         Measure.Method(() =>
         {
-            var excelWriter = new ExcelWriter(TestInit.FilePath, 0, 1);
-
-            var table = excelWriter.CreateTable("Test", true, true);
-            var sb = new StringBuilder();
-            for (int col = 0; col < TestInit.length - 1; col++) sb.Append($"ID_{col},");
-            sb.Append($"Num_{TestInit.length - 1}");
-            table.InitHeaders(typeof(int), sb.ToString().Split(",")); //last
-
-            for (int i = 0; i < TestInit.datas.Count; i++)
-            {
-                int row = i / TestInit.length;
-                int col = i % TestInit.length;
-                table.SetValue(row, col, TestInit.datas[i]);
-            }
-            excelWriter.SaveExcels();
-
+            Write(TestInit.TableName_performance);
         })
-            .MeasurementCount(20)
+            .MeasurementCount(10)
             .GC()
             .Run();
 
     }
 
-    [Test]
-    public void CreateExcel_WithoutID()
+    [Test, Performance]
+    public void Profile_ReadExcel()
     {
-        var excelWriter = new ExcelWriter(TestInit.FilePath, 0, 1);
 
-        var table = excelWriter.CreateTable("Test_WithoutID", false, false);
-        var sb = new StringBuilder();
-        for (int col = 0; col < TestInit.length - 1; col++) sb.Append($"Num_{col},");
-        sb.Append($"Num_{TestInit.length - 1}");
-        table.InitHeaders(typeof(int), sb.ToString().Split(",")); //last
+        Measure.Method(() =>
+        {
+            Read(TestInit.TableName_performance);
+        })
+            .MeasurementCount(10)
+            .GC()
+            .Run();
+
+    }
+
+    #endregion
+
+    #region Test Methods
+    private static void Write(string tableName)
+    {
+        var excelWriter = new ExcelWriter(TestInit.FilePath);
+
+        var table = excelWriter.CreateTable(tableName);
+        //headerTitles
+        var headers = new List<string>();
+        for (int col = 0; col < TestInit.Length; col++) headers.Add($"Num_{col}");
+        //Comments
+        var comments = new List<string>();
+        comments.Add("Comment");
+        for (int col = 0; col < TestInit.Length; col++) comments.Add($"#Comment_{col}");
+        table.InitHeaders(typeof(int), headers, comments);
+
 
         for (int i = 0; i < TestInit.datas.Count; i++)
         {
-            int row = i / TestInit.length;
-            int col = i % TestInit.length;
+            int row = i / TestInit.Length;
+            int col = i % TestInit.Length;
             table.SetValue(row, col, TestInit.datas[i]);
         }
-
         excelWriter.SaveExcels();
     }
 
-
-    [Test]
-    public void ReadExcel()
+    private static void Read(string tableName)
     {
-        var excelReader = new ExcelReader(TestInit.FilePath, 0, 1);
-        var tableReader = excelReader.GetTableReader("Test");
-        int rowIndex = 2;
-        var list = tableReader.GetRowsByID(rowIndex);
-        for (int i = 0; i < list.Count; i++)
+        var excelReader = new ExcelReader(TestInit.FilePath);
+        var tableReader = excelReader.GetTableReader(tableName);
+        for (int i = 0; i < TestInit.Length; i++)
         {
-            object item = list[i];
-            if (TestInit.datas[rowIndex * TestInit.length + i] != (int)list[i]) // has ID column
-                Debug.LogError($"{i}-{item}");
-        }
-    }
-
-
-    [Test]
-    public void CreateMulitpleExcels()
-    {
-        var excelWriter = new ExcelWriter(TestInit.FilePath, 0, 1);
-
-        int length = 9;
-        var table = excelWriter.CreateTable("Test", true, true);
-        var sb = new StringBuilder();
-        for (int col = 0; col < length - 1; col++) sb.Append($"Num_{col},");
-        sb.Append($"Num_{length - 1}");
-        table.InitHeaders(typeof(int), sb.ToString().Split(",")); //last
-        for (int row = 0; row < length; row++)
-        {
-            for (int col = 0; col < length; col++)
+            int rowId = i;
+            var list = tableReader.GetRowsByID(rowId);
+            for (int j = 0; j < list.Count; j++)
             {
-                table.SetValue(row, col, row * length + col);
+                Assert.AreEqual(TestInit.datas[rowId * TestInit.Length + j], System.Convert.ToInt32(list[j]));
             }
         }
-
-        excelWriter.SaveExcels();
-
-        excelWriter = new ExcelWriter(TestInit.FilePath, 0, 1);
-        length = 19;
-        var table2 = excelWriter.CreateTable("Test2", false, false);
-        sb = new StringBuilder();
-        for (int col = 0; col < length - 1; col++) sb.Append($"Num_{col},");
-        sb.Append($"Num_{length - 1}");
-        table2.InitHeaders(typeof(int), sb.ToString().Split(","));
-
-        for (int row = 0; row < length; row++)
-        {
-            for (int col = 0; col < length; col++)
-            {
-                table2.SetValue(row, col, row * length + col);
-            }
-        }
-
-        excelWriter.SaveExcels();
     }
+
+    #endregion
 
 }
