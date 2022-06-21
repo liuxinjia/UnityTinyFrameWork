@@ -7,8 +7,8 @@ using Cr7Sund.Editor.Excels;
 using System.Text;
 public class TestInit : IPrebuildSetup
 {
-    public static string FilePath = @"Cr7Example.xlsx";
-    public static string fileRelativePath = @"Cr7Example.xlsx";
+    public static string FilePath = @"ExcelOutputs/Test/Cr7TestExample.xlsx";
+    public static string fileRelativePath = @"ExcelOutputs/Test/Cr7Example.xlsx";
 
     public static List<int> datas = new List<int>();
     public static int length = 9;
@@ -21,7 +21,7 @@ public class TestInit : IPrebuildSetup
 
     public void InitExcelDatas()
     {
-        FilePath = EditorUtil.GetAssetAbsolutePath(fileRelativePath);
+        FilePath = EditorUtil.GetProjectFolderAbsPath(fileRelativePath);
 
         datas.Clear();
         for (int row = 0; row < length; row++)

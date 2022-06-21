@@ -18,9 +18,9 @@ public class TestExcelTools
         {
             var excelWriter = new ExcelWriter(TestInit.FilePath, 0, 1);
 
-            var table = excelWriter.CreateTable("west", true, true);
+            var table = excelWriter.CreateTable("Test", true, true);
             var sb = new StringBuilder();
-            for (int col = 0; col < TestInit.length - 1; col++) sb.Append($"Num_{col},");
+            for (int col = 0; col < TestInit.length - 1; col++) sb.Append($"ID_{col},");
             sb.Append($"Num_{TestInit.length - 1}");
             table.InitHeaders(typeof(int), sb.ToString().Split(",")); //last
 
@@ -44,7 +44,7 @@ public class TestExcelTools
     {
         var excelWriter = new ExcelWriter(TestInit.FilePath, 0, 1);
 
-        var table = excelWriter.CreateTable("west", false, false);
+        var table = excelWriter.CreateTable("Test_WithoutID", false, false);
         var sb = new StringBuilder();
         for (int col = 0; col < TestInit.length - 1; col++) sb.Append($"Num_{col},");
         sb.Append($"Num_{TestInit.length - 1}");
@@ -65,7 +65,7 @@ public class TestExcelTools
     public void ReadExcel()
     {
         var excelReader = new ExcelReader(TestInit.FilePath, 0, 1);
-        var tableReader = excelReader.GetTableReader("west");
+        var tableReader = excelReader.GetTableReader("Test");
         int rowIndex = 2;
         var list = tableReader.GetRowsByID(rowIndex);
         for (int i = 0; i < list.Count; i++)
@@ -83,7 +83,7 @@ public class TestExcelTools
         var excelWriter = new ExcelWriter(TestInit.FilePath, 0, 1);
 
         int length = 9;
-        var table = excelWriter.CreateTable("west", true, true);
+        var table = excelWriter.CreateTable("Test", true, true);
         var sb = new StringBuilder();
         for (int col = 0; col < length - 1; col++) sb.Append($"Num_{col},");
         sb.Append($"Num_{length - 1}");
@@ -100,7 +100,7 @@ public class TestExcelTools
 
         excelWriter = new ExcelWriter(TestInit.FilePath, 0, 1);
         length = 19;
-        var table2 = excelWriter.CreateTable("west2", false, false);
+        var table2 = excelWriter.CreateTable("Test2", false, false);
         sb = new StringBuilder();
         for (int col = 0; col < length - 1; col++) sb.Append($"Num_{col},");
         sb.Append($"Num_{length - 1}");
