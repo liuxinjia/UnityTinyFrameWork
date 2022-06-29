@@ -25,7 +25,6 @@ namespace Cr7Sund.Core.Persistance
 
 
 
-
         #region SQL Methods
         /// <summary>
         /// Execute SQL Query

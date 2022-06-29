@@ -40,24 +40,6 @@ public class TestSQL
 
             sqlCtrl.CreateOrOpenTable(tableName, columnNames.ToArray(), columnSqlTypes.ToArray());
 
-            for (int i = TableData.ContentStartIndex; i <= tableReader.RowLength; i++)
-            {
-                int id = i - TableData.ContentStartIndex;
-                var rowData = tableReader.GetRow(i);
-                columnValues.Clear();
-                for (int j = rowData.FirstCellNum; j < rowData.LastCellNum; j++)
-                {
-                    var cell = rowData.GetCell(j);
-                    if (cell.CellType == CellType.Numeric) columnValues.Add(cell.NumericCellValue.ToString());
-                    else if (cell.CellType == CellType.Boolean) columnValues.Add(cell.BooleanCellValue.ToString());
-                    else if (cell.CellType == CellType.String) columnValues.Add($"'{cell.StringCellValue}'");
-                    else throw new System.Exception("No supported");
-                }
-
-                // sqlCtrl.InsertValues(tableName, columnValues.ToArray());
-                // sqlCtrl.UpdateValues(tableName, columnNames.ToArray(), columnValues.ToArray(), $"ID = {id}");
-                // sqlCtrl.DeleteValue(tableName, $"ID = {id}");
-            }
         }
 
     }
