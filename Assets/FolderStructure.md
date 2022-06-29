@@ -3,12 +3,7 @@ C:\Users\liux4\Documents\UnityProjects\UnityTinyFrameWork\Assets
 ├─FolderStructure.md
 ├─FolderStructure.md.meta
 ├─Modules.meta
-├─Test.meta
-├─Test
-|  ├─Editor.meta
-|  ├─Runtime.meta
-|  ├─Runtime
-|  ├─Editor
+├─Plugins.meta
 ├─Plugins
 ├─Modules
 |    ├─Audio.meta
@@ -28,6 +23,9 @@ C:\Users\liux4\Documents\UnityProjects\UnityTinyFrameWork\Assets
 |    ├─Config
 |    ├─Audio
 ├─Core
-|  ├─Ecs.meta
-|  ├─Utils.meta
-|  ├─Ecs
+|  ├─Cr7Sund.Core.asmdef
+|  ├─Cr7Sund.Core.asmdef.meta
+|  ├─Editor.meta
+|  ├─Runtime.meta
+|  ├─Runtime
+|  ├─Editor
