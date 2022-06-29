@@ -1,11 +1,24 @@
-```
 C:\Users\liux4\Documents\UnityProjects\UnityTinyFrameWork\Assets
+├─Core.meta
 ├─FolderStructure.md
-├─README.md
+├─FolderStructure.md.meta
+├─Modules.meta
+├─Test.meta
 ├─Test
+|  ├─Editor.meta
+|  ├─Runtime.meta
 |  ├─Runtime
 |  ├─Editor
+├─Plugins
 ├─Modules
+|    ├─Audio.meta
+|    ├─Config.meta
+|    ├─Event.meta
+|    ├─Input.meta
+|    ├─Net.meta
+|    ├─Persistent.meta
+|    ├─Res.meta
+|    ├─UIFrameWork.meta
 |    ├─UIFrameWork
 |    ├─Res
 |    ├─Persistent
@@ -15,7 +28,6 @@ C:\Users\liux4\Documents\UnityProjects\UnityTinyFrameWork\Assets
 |    ├─Config
 |    ├─Audio
 ├─Core
-|  ├─Utils
+|  ├─Ecs.meta
+|  ├─Utils.meta
 |  ├─Ecs
-
-```
