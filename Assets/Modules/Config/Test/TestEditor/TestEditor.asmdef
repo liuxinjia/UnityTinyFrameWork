@@ -4,10 +4,9 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "Cr7Sund.Editor",
         "Unity.PerformanceTesting",
-        "Cr7Sund.Persistant",
-        "Cr7Sund.Core"
+        "Cr7Sund.Config",
+        "Cr7Sund.Core.Editor"
     ],
     "includePlatforms": [
         "Editor"
@@ -17,8 +16,8 @@
     "overrideReferences": true,
     "precompiledReferences": [
         "nunit.framework.dll",
-        "Mono.Data.Sqlite.dll",
-        "NPOI.dll"
+        "NPOI.dll",
+        "Mono.Data.Sqlite.dll"
     ],
     "autoReferenced": false,
     "defineConstraints": [
