@@ -1,0 +1,3 @@
+[submodule "Assets/Modules/EditorTools"]
+	path = Assets/Modules/EditorTools
+	url = https://github.com/Cr7Sund/EditorTools.git
