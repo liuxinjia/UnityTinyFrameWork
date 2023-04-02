@@ -1,0 +1,12 @@
+﻿{
+    "RoslynExtensionsOptions": {
+        "enableRoslynAnalyzers": true,
+        "enableEditorConfigSupport": true,
+        "sdkIncludePrereleases": false,
+        "organizeImportsOnFormat": true,
+        "threadsToUseForAnalyzers": true,
+        "useModernNet": true,
+        "documentAnalysisTimeoutMs": 600000,
+        "LocationPaths": ["./NuGet"]
+    }
+}
