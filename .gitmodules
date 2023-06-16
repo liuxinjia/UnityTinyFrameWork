@@ -1,3 +1,12 @@
 [submodule "Assets/Modules/EditorTools"]
 	path = Assets/Modules/EditorTools
 	url = https://github.com/Cr7Sund/EditorTools.git
+[submodule "Assets/Modules/ResMgr"]
+	path = Assets/Modules/ResMgr
+	url = https://github.com/Cr7Sund/ResMgr.git
+[submodule "Assets/Modules/UIFramework"]
+	path = Assets/Modules/UIFramework
+	url = https://github.com/Cr7Sund/UIFrameWork.git
+[submodule "Assets/Modules/UGUI"]
+	path = Assets/Modules/UGUI
+	url = https://github.com/Cr7Sund/UGUI.git
