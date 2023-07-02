@@ -178,7 +178,7 @@ namespace Cr7Sund
         /// <param name="format">格式化字符串</param>
         /// <param name="args">不定长格式化参数</param>
         [Conditional(MacroDefine.UNITY_EDITOR), Conditional(MacroDefine.DEBUG), Conditional(MacroDefine.PROFILER), Conditional(MacroDefine.FINAL_RELEASE)]
-        public static void Error(string format, params object[] args)
+        public static void ErrorFormat(string format, params object[] args)
         {
             var result = log.Format(LogLevel.Error, format, args);
 
@@ -190,12 +190,13 @@ namespace Cr7Sund
         /// </summary>
         /// <param name="format">格式化字符串</param>
         /// <param name="args">不定长格式化参数</param>
+        /// <param name="context">Object to which the message applies.</param>
         [Conditional(MacroDefine.UNITY_EDITOR), Conditional(MacroDefine.DEBUG), Conditional(MacroDefine.PROFILER), Conditional(MacroDefine.FINAL_RELEASE)]
-        public static void Error(object obj)
+        public static void Error(object obj, UnityEngine.Object context = null)
         {
             var result = log.Format(LogLevel.Error, obj.ToString());
 
-            UnityEngine.Debug.LogError(result);
+            UnityEngine.Debug.LogError(result, context);
         }
 
         /// <summary>
@@ -207,7 +208,7 @@ namespace Cr7Sund
         [Conditional(MacroDefine.UNITY_EDITOR), Conditional(MacroDefine.DEBUG), Conditional(MacroDefine.PROFILER), Conditional(MacroDefine.FINAL_RELEASE)]
         public static void Exception(System.Exception exception)
         {
-            Exception(null, exception);
+            ExceptionFormat(null, exception);
         }
 
         /// <summary>
@@ -217,16 +218,16 @@ namespace Cr7Sund
         /// <param name="format">格式化字符串</param>
         /// <param name="args">不定长格式化参数</param>
         [Conditional(MacroDefine.UNITY_EDITOR), Conditional(MacroDefine.DEBUG), Conditional(MacroDefine.PROFILER), Conditional(MacroDefine.FINAL_RELEASE)]
-        public static void Exception(string prefix, System.Exception exception)
+        public static void ExceptionFormat(string prefix, System.Exception exception)
         {
             if (null == exception)
             {
-                Log.Error("{0} Exception is null.", prefix);
+                Log.ErrorFormat("{0} Exception is null.", prefix);
                 return;
             }
 
             string exceptionStr = ParseException(exception);
-            Log.Error("{0} {1}", prefix, exceptionStr);
+            Log.ErrorFormat("{0} {1}", prefix, exceptionStr);
         }
 
         #endregion

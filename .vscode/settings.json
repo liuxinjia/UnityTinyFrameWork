@@ -59,4 +59,5 @@
     "python.analysis.fixAll": [
         "source.unusedImports"
     ],
+    "dotnet.defaultSolution": "UnityTinyFrameWork.sln",
 }
