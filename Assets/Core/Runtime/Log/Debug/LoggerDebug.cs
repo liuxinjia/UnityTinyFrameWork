@@ -2,7 +2,7 @@
 
 namespace Cr7Sund.Logger
 {
-    class Debug
+    internal class Debug
     {
         [Conditional(MacroDefine.UNITY_EDITOR), Conditional(MacroDefine.DEBUG)]
         public static void UnityEditorDebug(string format, params object[] args)

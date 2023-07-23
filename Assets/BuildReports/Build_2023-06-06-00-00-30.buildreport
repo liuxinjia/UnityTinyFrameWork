@@ -1,0 +1,1173 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!641289076 &-7678351385152021384
+AudioBuildInfo:
+  m_IsAudioDisabled: 0
+  m_AudioClipCount: 0
+  m_AudioMixerCount: 0
+--- !u!1521398425 &-2372806553210870767
+VideoBuildInfo:
+  m_VideoClipCount: 0
+  m_IsVideoModuleDisabled: 0
+--- !u!382020655 &-282821322688731135
+PluginBuildInfo:
+  m_RuntimePlugins:
+  - Unity.Collections.LowLevel.ILSupport
+  - Unity.Burst.Unsafe
+  - nunit.framework
+  m_EditorPlugins:
+  - BoundedBiharmonicWeightsModule
+  - Unity.Burst.Cecil.Mdb
+  - Unity.Burst.Cecil.Pdb
+  - Unity.Burst.Cecil
+  - Unity.Burst.Cecil.Rocks
+  - AppleEventIntegration
+--- !u!1125 &1
+BuildReport:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Build_2023-06-06-00-00-30
+  m_Summary:
+    buildStartTime:
+      serializedVersion: 2
+      ticks: 638215775914060992
+    buildGUID: f34383c0936c45d9a12205270ac9b54b
+    platformName: Android
+    platformGroupName: Android
+    subtarget: 0
+    options: 2359301
+    assetBundleOptions: 0
+    outputPath: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Debug/TestAddressables.aab
+    crc: 0
+    totalSize: 133942317
+    totalTimeTicks: 385907819
+    totalErrors: 0
+    totalWarnings: 1
+    buildType: 1
+    buildResult: 1
+  m_Files:
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/data.unity3d
+    role: unity3d
+    id: 0
+    totalSize: 1102694
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/RuntimeInitializeOnLoads.json
+    role: json
+    id: 1
+    totalSize: 668
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/ScriptingAssemblies.json
+    role: json
+    id: 2
+    totalSize: 3136
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/boot.config
+    role: config
+    id: 3
+    totalSize: 346
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/aa/catalog.json
+    role: json
+    id: 4
+    totalSize: 19584
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/aa/settings.json
+    role: json
+    id: 5
+    totalSize: 3195
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/aa/AddressablesLink/link.xml
+    role: xml
+    id: 6
+    totalSize: 4017
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/aa/Android/c32cc4a54dab9156da118882e3bb69d3_unitybuiltinshaders_6b2ebc1e622ef29e602bdc0c1306bf5c.bundle
+    role: bundle
+    id: 7
+    totalSize: 60344
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/aa/Android/defaultlocalgroup_assets_all_d02d4cea3e4122067bdffcd5a587bc3c.bundle
+    role: bundle
+    id: 8
+    totalSize: 2685445
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/aa/Android/localnostatic_assets_all_a731f17cbcd0918a60a94155f6069eb5.bundle
+    role: bundle
+    id: 9
+    totalSize: 621709
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/aa/Android/localstatic_assets_all_fd2647c2bf749560cb7394fe738d97b3.bundle
+    role: bundle
+    id: 10
+    totalSize: 621488
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.AIModule.dll
+    role: dll
+    id: 11
+    totalSize: 47616
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.ARModule.dll
+    role: dll
+    id: 12
+    totalSize: 10752
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.AccessibilityModule.dll
+    role: dll
+    id: 13
+    totalSize: 12800
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.AndroidJNIModule.dll
+    role: dll
+    id: 14
+    totalSize: 86016
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.AnimationModule.dll
+    role: dll
+    id: 15
+    totalSize: 153088
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.AssetBundleModule.dll
+    role: dll
+    id: 16
+    totalSize: 22016
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.AudioModule.dll
+    role: dll
+    id: 17
+    totalSize: 59392
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.ClothModule.dll
+    role: dll
+    id: 18
+    totalSize: 15360
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.ContentLoadModule.dll
+    role: dll
+    id: 19
+    totalSize: 16384
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.CoreModule.dll
+    role: dll
+    id: 20
+    totalSize: 1331712
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.CrashReportingModule.dll
+    role: dll
+    id: 21
+    totalSize: 10752
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.DSPGraphModule.dll
+    role: dll
+    id: 22
+    totalSize: 18944
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.DirectorModule.dll
+    role: dll
+    id: 23
+    totalSize: 14336
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.GIModule.dll
+    role: dll
+    id: 24
+    totalSize: 9728
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.GameCenterModule.dll
+    role: dll
+    id: 25
+    totalSize: 29184
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.GridModule.dll
+    role: dll
+    id: 26
+    totalSize: 14336
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.HotReloadModule.dll
+    role: dll
+    id: 27
+    totalSize: 9728
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.IMGUIModule.dll
+    role: dll
+    id: 28
+    totalSize: 178688
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.ImageConversionModule.dll
+    role: dll
+    id: 29
+    totalSize: 13824
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.InputLegacyModule.dll
+    role: dll
+    id: 30
+    totalSize: 29184
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.InputModule.dll
+    role: dll
+    id: 31
+    totalSize: 13312
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.JSONSerializeModule.dll
+    role: dll
+    id: 32
+    totalSize: 11776
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.LocalizationModule.dll
+    role: dll
+    id: 33
+    totalSize: 10752
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.ParticleSystemModule.dll
+    role: dll
+    id: 34
+    totalSize: 145920
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.PerformanceReportingModule.dll
+    role: dll
+    id: 35
+    totalSize: 10240
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.Physics2DModule.dll
+    role: dll
+    id: 36
+    totalSize: 130560
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.PhysicsModule.dll
+    role: dll
+    id: 37
+    totalSize: 128000
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.ProfilerModule.dll
+    role: dll
+    id: 38
+    totalSize: 9728
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.PropertiesModule.dll
+    role: dll
+    id: 39
+    totalSize: 141312
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll
+    role: dll
+    id: 40
+    totalSize: 9728
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.ScreenCaptureModule.dll
+    role: dll
+    id: 41
+    totalSize: 10752
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.SharedInternalsModule.dll
+    role: dll
+    id: 42
+    totalSize: 22016
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.SpriteMaskModule.dll
+    role: dll
+    id: 43
+    totalSize: 10752
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.SpriteShapeModule.dll
+    role: dll
+    id: 44
+    totalSize: 15360
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.StreamingModule.dll
+    role: dll
+    id: 45
+    totalSize: 10240
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.SubstanceModule.dll
+    role: dll
+    id: 46
+    totalSize: 14336
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.SubsystemsModule.dll
+    role: dll
+    id: 47
+    totalSize: 24064
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.TLSModule.dll
+    role: dll
+    id: 48
+    totalSize: 16384
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.TerrainModule.dll
+    role: dll
+    id: 49
+    totalSize: 90112
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.TerrainPhysicsModule.dll
+    role: dll
+    id: 50
+    totalSize: 10240
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.TextCoreFontEngineModule.dll
+    role: dll
+    id: 51
+    totalSize: 61952
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.TextCoreTextEngineModule.dll
+    role: dll
+    id: 52
+    totalSize: 239616
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.TextRenderingModule.dll
+    role: dll
+    id: 53
+    totalSize: 28160
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.TilemapModule.dll
+    role: dll
+    id: 54
+    totalSize: 36352
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UIElementsModule.dll
+    role: dll
+    id: 55
+    totalSize: 1498112
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UIModule.dll
+    role: dll
+    id: 56
+    totalSize: 26112
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UmbraModule.dll
+    role: dll
+    id: 57
+    totalSize: 9728
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UnityAnalyticsCommonModule.dll
+    role: dll
+    id: 58
+    totalSize: 10240
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UnityAnalyticsModule.dll
+    role: dll
+    id: 59
+    totalSize: 33792
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UnityConnectModule.dll
+    role: dll
+    id: 60
+    totalSize: 11264
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UnityCurlModule.dll
+    role: dll
+    id: 61
+    totalSize: 11264
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UnityTestProtocolModule.dll
+    role: dll
+    id: 62
+    totalSize: 9728
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll
+    role: dll
+    id: 63
+    totalSize: 12800
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll
+    role: dll
+    id: 64
+    totalSize: 11776
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UnityWebRequestModule.dll
+    role: dll
+    id: 65
+    totalSize: 47616
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll
+    role: dll
+    id: 66
+    totalSize: 11264
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll
+    role: dll
+    id: 67
+    totalSize: 20480
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.VFXModule.dll
+    role: dll
+    id: 68
+    totalSize: 47616
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.VRModule.dll
+    role: dll
+    id: 69
+    totalSize: 15872
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.VehiclesModule.dll
+    role: dll
+    id: 70
+    totalSize: 13824
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.VideoModule.dll
+    role: dll
+    id: 71
+    totalSize: 30720
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.WindModule.dll
+    role: dll
+    id: 72
+    totalSize: 10240
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.XRModule.dll
+    role: dll
+    id: 73
+    totalSize: 59904
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.dll
+    role: dll
+    id: 74
+    totalSize: 112128
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Assembly-CSharp.dll
+    role: dll
+    id: 75
+    totalSize: 8192
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.2D.IK.Runtime.dll
+    role: dll
+    id: 76
+    totalSize: 22016
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.ResourceManager.dll
+    role: dll
+    id: 77
+    totalSize: 154624
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.ScriptableBuildPipeline.dll
+    role: dll
+    id: 78
+    totalSize: 9216
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.Collections.dll
+    role: dll
+    id: 79
+    totalSize: 400896
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Cr7Sund.ResMgr.dll
+    role: dll
+    id: 80
+    totalSize: 11776
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.2D.SpriteShape.Runtime.dll
+    role: dll
+    id: 81
+    totalSize: 117760
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.2D.PixelPerfect.dll
+    role: dll
+    id: 82
+    totalSize: 14336
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.TextMeshPro.dll
+    role: dll
+    id: 83
+    totalSize: 436224
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.Profiling.Core.dll
+    role: dll
+    id: 84
+    totalSize: 12288
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.MemoryProfiler.dll
+    role: dll
+    id: 85
+    totalSize: 6144
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.Burst.dll
+    role: dll
+    id: 86
+    totalSize: 346624
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.Tutorials.Core.dll
+    role: dll
+    id: 87
+    totalSize: 6656
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.2D.Animation.Runtime.dll
+    role: dll
+    id: 88
+    totalSize: 76800
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.2D.Tilemap.Extras.dll
+    role: dll
+    id: 89
+    totalSize: 35840
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Cr7Sund.Core.dll
+    role: dll
+    id: 90
+    totalSize: 20992
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UI.dll
+    role: dll
+    id: 91
+    totalSize: 294912
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.InternalAPIEngineBridge.001.dll
+    role: dll
+    id: 92
+    totalSize: 6656
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.2D.Common.Runtime.dll
+    role: dll
+    id: 93
+    totalSize: 48128
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.Timeline.dll
+    role: dll
+    id: 94
+    totalSize: 141312
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.Mathematics.dll
+    role: dll
+    id: 95
+    totalSize: 873984
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.Addressables.dll
+    role: dll
+    id: 96
+    totalSize: 122880
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.Collections.LowLevel.ILSupport.dll
+    role: dll
+    id: 97
+    totalSize: 4096
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.Burst.Unsafe.dll
+    role: dll
+    id: 98
+    totalSize: 5632
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/System.Runtime.dll
+    role: dll
+    id: 99
+    totalSize: 12288
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/netstandard.dll
+    role: dll
+    id: 100
+    totalSize: 90624
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Mono.Security.dll
+    role: dll
+    id: 101
+    totalSize: 241152
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/System.ComponentModel.Composition.dll
+    role: dll
+    id: 102
+    totalSize: 257024
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/System.Configuration.dll
+    role: dll
+    id: 103
+    totalSize: 124928
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/System.Core.dll
+    role: dll
+    id: 104
+    totalSize: 1115136
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/System.Data.DataSetExtensions.dll
+    role: dll
+    id: 105
+    totalSize: 29696
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/System.Data.dll
+    role: dll
+    id: 106
+    totalSize: 2098176
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/System.Drawing.dll
+    role: dll
+    id: 107
+    totalSize: 489984
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/System.EnterpriseServices.dll
+    role: dll
+    id: 108
+    totalSize: 44544
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/System.IO.Compression.FileSystem.dll
+    role: dll
+    id: 109
+    totalSize: 18432
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/System.IO.Compression.dll
+    role: dll
+    id: 110
+    totalSize: 114688
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/System.Net.Http.dll
+    role: dll
+    id: 111
+    totalSize: 281088
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/System.Numerics.dll
+    role: dll
+    id: 112
+    totalSize: 119296
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/System.Runtime.Serialization.dll
+    role: dll
+    id: 113
+    totalSize: 934400
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/System.Security.dll
+    role: dll
+    id: 114
+    totalSize: 314880
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/System.ServiceModel.Internals.dll
+    role: dll
+    id: 115
+    totalSize: 215040
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/System.Transactions.dll
+    role: dll
+    id: 116
+    totalSize: 35328
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/System.Xml.Linq.dll
+    role: dll
+    id: 117
+    totalSize: 136704
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/System.Xml.dll
+    role: dll
+    id: 118
+    totalSize: 3160064
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/System.dll
+    role: dll
+    id: 119
+    totalSize: 2651648
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/mscorlib.dll
+    role: dll
+    id: 120
+    totalSize: 4622848
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.AIModule.pdb
+    role: pdb
+    id: 121
+    totalSize: 19916
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.ARModule.pdb
+    role: pdb
+    id: 122
+    totalSize: 9864
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.AccessibilityModule.pdb
+    role: pdb
+    id: 123
+    totalSize: 10380
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.AndroidJNIModule.pdb
+    role: pdb
+    id: 124
+    totalSize: 44368
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.AnimationModule.pdb
+    role: pdb
+    id: 125
+    totalSize: 53180
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.AssetBundleModule.pdb
+    role: pdb
+    id: 126
+    totalSize: 13164
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.AudioModule.pdb
+    role: pdb
+    id: 127
+    totalSize: 21496
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.ClothModule.pdb
+    role: pdb
+    id: 128
+    totalSize: 10248
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.ContentLoadModule.pdb
+    role: pdb
+    id: 129
+    totalSize: 10924
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.CoreModule.pdb
+    role: pdb
+    id: 130
+    totalSize: 442724
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.CrashReportingModule.pdb
+    role: pdb
+    id: 131
+    totalSize: 9724
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.DSPGraphModule.pdb
+    role: pdb
+    id: 132
+    totalSize: 10400
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.DirectorModule.pdb
+    role: pdb
+    id: 133
+    totalSize: 10496
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.GIModule.pdb
+    role: pdb
+    id: 134
+    totalSize: 9120
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.GameCenterModule.pdb
+    role: pdb
+    id: 135
+    totalSize: 17344
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.GridModule.pdb
+    role: pdb
+    id: 136
+    totalSize: 9856
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.HotReloadModule.pdb
+    role: pdb
+    id: 137
+    totalSize: 9120
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.IMGUIModule.pdb
+    role: pdb
+    id: 138
+    totalSize: 87004
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.ImageConversionModule.pdb
+    role: pdb
+    id: 139
+    totalSize: 10264
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.InputLegacyModule.pdb
+    role: pdb
+    id: 140
+    totalSize: 15448
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.InputModule.pdb
+    role: pdb
+    id: 141
+    totalSize: 10484
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.JSONSerializeModule.pdb
+    role: pdb
+    id: 142
+    totalSize: 9744
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.LocalizationModule.pdb
+    role: pdb
+    id: 143
+    totalSize: 9512
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.ParticleSystemModule.pdb
+    role: pdb
+    id: 144
+    totalSize: 34844
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.PerformanceReportingModule.pdb
+    role: pdb
+    id: 145
+    totalSize: 9324
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.Physics2DModule.pdb
+    role: pdb
+    id: 146
+    totalSize: 42616
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.PhysicsModule.pdb
+    role: pdb
+    id: 147
+    totalSize: 41104
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.ProfilerModule.pdb
+    role: pdb
+    id: 148
+    totalSize: 9120
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.PropertiesModule.pdb
+    role: pdb
+    id: 149
+    totalSize: 56636
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.pdb
+    role: pdb
+    id: 150
+    totalSize: 9180
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.ScreenCaptureModule.pdb
+    role: pdb
+    id: 151
+    totalSize: 9712
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.SharedInternalsModule.pdb
+    role: pdb
+    id: 152
+    totalSize: 14100
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.SpriteMaskModule.pdb
+    role: pdb
+    id: 153
+    totalSize: 9224
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.SpriteShapeModule.pdb
+    role: pdb
+    id: 154
+    totalSize: 10664
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.StreamingModule.pdb
+    role: pdb
+    id: 155
+    totalSize: 9172
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.SubstanceModule.pdb
+    role: pdb
+    id: 156
+    totalSize: 11336
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.SubsystemsModule.pdb
+    role: pdb
+    id: 157
+    totalSize: 15428
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.TLSModule.pdb
+    role: pdb
+    id: 158
+    totalSize: 9140
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.TerrainModule.pdb
+    role: pdb
+    id: 159
+    totalSize: 32636
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.TerrainPhysicsModule.pdb
+    role: pdb
+    id: 160
+    totalSize: 9580
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.TextCoreFontEngineModule.pdb
+    role: pdb
+    id: 161
+    totalSize: 27540
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.TextCoreTextEngineModule.pdb
+    role: pdb
+    id: 162
+    totalSize: 111128
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.TextRenderingModule.pdb
+    role: pdb
+    id: 163
+    totalSize: 14800
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.TilemapModule.pdb
+    role: pdb
+    id: 164
+    totalSize: 18372
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UIElementsModule.pdb
+    role: pdb
+    id: 165
+    totalSize: 689988
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UIModule.pdb
+    role: pdb
+    id: 166
+    totalSize: 13384
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UmbraModule.pdb
+    role: pdb
+    id: 167
+    totalSize: 9120
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UnityAnalyticsCommonModule.pdb
+    role: pdb
+    id: 168
+    totalSize: 9544
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UnityAnalyticsModule.pdb
+    role: pdb
+    id: 169
+    totalSize: 17492
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UnityConnectModule.pdb
+    role: pdb
+    id: 170
+    totalSize: 9688
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UnityCurlModule.pdb
+    role: pdb
+    id: 171
+    totalSize: 9520
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UnityTestProtocolModule.pdb
+    role: pdb
+    id: 172
+    totalSize: 9180
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.pdb
+    role: pdb
+    id: 173
+    totalSize: 10648
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UnityWebRequestAudioModule.pdb
+    role: pdb
+    id: 174
+    totalSize: 10112
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UnityWebRequestModule.pdb
+    role: pdb
+    id: 175
+    totalSize: 27644
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UnityWebRequestTextureModule.pdb
+    role: pdb
+    id: 176
+    totalSize: 10208
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UnityWebRequestWWWModule.pdb
+    role: pdb
+    id: 177
+    totalSize: 13448
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.VFXModule.pdb
+    role: pdb
+    id: 178
+    totalSize: 17684
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.VRModule.pdb
+    role: pdb
+    id: 179
+    totalSize: 10180
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.VehiclesModule.pdb
+    role: pdb
+    id: 180
+    totalSize: 10272
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.VideoModule.pdb
+    role: pdb
+    id: 181
+    totalSize: 13304
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.WindModule.pdb
+    role: pdb
+    id: 182
+    totalSize: 9204
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.XRModule.pdb
+    role: pdb
+    id: 183
+    totalSize: 23200
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.pdb
+    role: pdb
+    id: 184
+    totalSize: 11436
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Assembly-CSharp.pdb
+    role: pdb
+    id: 185
+    totalSize: 18408
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.2D.IK.Runtime.pdb
+    role: pdb
+    id: 186
+    totalSize: 26052
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.ResourceManager.pdb
+    role: pdb
+    id: 187
+    totalSize: 87028
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.ScriptableBuildPipeline.pdb
+    role: pdb
+    id: 188
+    totalSize: 17372
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.Collections.pdb
+    role: pdb
+    id: 189
+    totalSize: 254876
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Cr7Sund.ResMgr.pdb
+    role: pdb
+    id: 190
+    totalSize: 17832
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.2D.SpriteShape.Runtime.pdb
+    role: pdb
+    id: 191
+    totalSize: 80176
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.2D.PixelPerfect.pdb
+    role: pdb
+    id: 192
+    totalSize: 19204
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.TextMeshPro.pdb
+    role: pdb
+    id: 193
+    totalSize: 233472
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.Profiling.Core.pdb
+    role: pdb
+    id: 194
+    totalSize: 18948
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.MemoryProfiler.pdb
+    role: pdb
+    id: 195
+    totalSize: 15940
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.Burst.pdb
+    role: pdb
+    id: 196
+    totalSize: 218840
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.Tutorials.Core.pdb
+    role: pdb
+    id: 197
+    totalSize: 16412
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.2D.Animation.Runtime.pdb
+    role: pdb
+    id: 198
+    totalSize: 49876
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.2D.Tilemap.Extras.pdb
+    role: pdb
+    id: 199
+    totalSize: 29692
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Cr7Sund.Core.pdb
+    role: pdb
+    id: 200
+    totalSize: 24988
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/UnityEngine.UI.pdb
+    role: pdb
+    id: 201
+    totalSize: 179500
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.InternalAPIEngineBridge.001.pdb
+    role: pdb
+    id: 202
+    totalSize: 16128
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.2D.Common.Runtime.pdb
+    role: pdb
+    id: 203
+    totalSize: 41884
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.Timeline.pdb
+    role: pdb
+    id: 204
+    totalSize: 85828
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.Mathematics.pdb
+    role: pdb
+    id: 205
+    totalSize: 506836
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/Managed/Unity.Addressables.pdb
+    role: pdb
+    id: 206
+    totalSize: 70184
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/jniLibs/armeabi-v7a/lib_burst_generated.so
+    role: so
+    id: 207
+    totalSize: 760200
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/jniLibs/x86/lib_burst_generated.so
+    role: so
+    id: 208
+    totalSize: 712140
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/unity
+      default resources
+    role: unity default resources
+    id: 209
+    totalSize: 1110488
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/build.gradle
+    role: gradle
+    id: 210
+    totalSize: 801
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/build.gradle
+    role: gradle
+    id: 211
+    totalSize: 1033
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/build.gradle
+    role: gradle
+    id: 212
+    totalSize: 1638
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/gradle.properties
+    role: properties
+    id: 213
+    totalSize: 152
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/local.properties
+    role: properties
+    id: 214
+    totalSize: 109
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/settings.gradle
+    role: gradle
+    id: 215
+    totalSize: 422
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/proguard-unity.txt
+    role: txt
+    id: 216
+    totalSize: 1050
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/gradle/wrapper/gradle-wrapper.properties
+    role: properties
+    id: 217
+    totalSize: 77
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/java/com/unity3d/player/UnityPlayerActivity.java
+    role: java
+    id: 218
+    totalSize: 5579
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/libs/unity-classes.jar
+    role: jar
+    id: 219
+    totalSize: 134422
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/res/values/ids.xml
+    role: xml
+    id: 220
+    totalSize: 111
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/res/values-v21/styles.xml
+    role: xml
+    id: 221
+    totalSize: 169
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/res/values-v28/styles.xml
+    role: xml
+    id: 222
+    totalSize: 244
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/res/values/styles.xml
+    role: xml
+    id: 223
+    totalSize: 529
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/values/strings.xml
+    role: xml
+    id: 224
+    totalSize: 187
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/res/values-v30/freeformwindow.xml
+    role: xml
+    id: 225
+    totalSize: 395
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/res/values/freeformwindow.xml
+    role: xml
+    id: 226
+    totalSize: 359
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-anydpi-v26/app_icon.xml
+    role: xml
+    id: 227
+    totalSize: 266
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-anydpi-v26/app_icon_round.xml
+    role: xml
+    id: 228
+    totalSize: 266
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-mdpi/app_icon.png
+    role: png
+    id: 229
+    totalSize: 1746
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-mdpi/ic_launcher_background.png
+    role: png
+    id: 230
+    totalSize: 318
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-mdpi/ic_launcher_foreground.png
+    role: png
+    id: 231
+    totalSize: 4549
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/drawable-xhdpi/app_banner.png
+    role: png
+    id: 232
+    totalSize: 8478
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/jniLibs/armeabi-v7a/libmain.so
+    role: so
+    id: 233
+    totalSize: 11636
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/jniLibs/armeabi-v7a/libunity.so
+    role: so
+    id: 234
+    totalSize: 49862572
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/jniLibs/armeabi-v7a/libmonobdwgc-2.0.so
+    role: so
+    id: 235
+    totalSize: 7005416
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/jniLibs/armeabi-v7a/libMonoPosixHelper.so
+    role: so
+    id: 236
+    totalSize: 416308
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/jniLibs/armeabi-v7a/libmono-native.so
+    role: so
+    id: 237
+    totalSize: 1207324
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/AndroidManifest.xml
+    role: xml
+    id: 238
+    totalSize: 544
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/AndroidManifest.xml
+    role: xml
+    id: 239
+    totalSize: 1915
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/unity_app_guid
+    role: unity_app_guid
+    id: 240
+    totalSize: 36
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/resources/META-INF/com.android.games.engine.build_fingerprint
+    role: build_fingerprint
+    id: 241
+    totalSize: 69
+  - path: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Debug/TestAddressables.aab
+    role: Android AppBundle
+    id: 242
+    totalSize: 37667039
+  m_BuildSteps:
+  - stepName: Build player
+    durationTicks: 385907819
+    depth: 0
+    messages: []
+  - stepName: Preprocess Player
+    durationTicks: 154102
+    depth: 1
+    messages:
+    - type: 2
+      content: Unity.Tutorials.Core.Editor.BuildStartedCriterion must be instantiated
+        using the ScriptableObject.CreateInstance method instead of new BuildStartedCriterion.
+  - stepName: Prepare For Build
+    durationTicks: 19180275
+    depth: 1
+    messages: []
+  - stepName: ProducePlayerScriptAssemblies
+    durationTicks: 31957725
+    depth: 1
+    messages: []
+  - stepName: Prebuild Cleanup and Recompile
+    durationTicks: 30004394
+    depth: 2
+    messages: []
+  - stepName: Compile scripts
+    durationTicks: 29363697
+    depth: 3
+    messages: []
+  - stepName: Generate and validate platform script types
+    durationTicks: 59502
+    depth: 3
+    messages: []
+  - stepName: Verify Build setup
+    durationTicks: 474129
+    depth: 1
+    messages: []
+  - stepName: Check old data build
+    durationTicks: 365563
+    depth: 2
+    messages: []
+  - stepName: Set up scripts only build
+    durationTicks: 38615
+    depth: 2
+    messages: []
+  - stepName: Prepare assets for target platform
+    durationTicks: 849332
+    depth: 1
+    messages: []
+  - stepName: Prepare splash screen
+    durationTicks: 4504254
+    depth: 1
+    messages:
+    - type: 3
+      content: Including Unity Splash Screen logo because 'Show Unity Logo' is enabled.
+  - stepName: Run script only build
+    durationTicks: 9070741
+    depth: 1
+    messages: []
+  - stepName: Build scripts DLLs
+    durationTicks: 8996453
+    depth: 2
+    messages: []
+  - stepName: GetReferencedAssemblies
+    durationTicks: 8828354
+    depth: 3
+    messages: []
+  - stepName: Postprocess built player
+    durationTicks: 318231767
+    depth: 1
+    messages: []
+  - stepName: Initializing
+    durationTicks: 512
+    depth: 2
+    messages: []
+  - stepName: Check gradle project collisions
+    durationTicks: 49
+    depth: 2
+    messages: []
+  - stepName: Preparing banner
+    durationTicks: 1464461
+    depth: 2
+    messages: []
+  - stepName: Setup incremental player build
+    durationTicks: 1172046
+    depth: 2
+    messages: []
+  - stepName: Incremental player build
+    durationTicks: 7264441
+    depth: 2
+    messages: []
+  - stepName: Report output files
+    durationTicks: 387614
+    depth: 2
+    messages: []
+  - stepName: Calling IPostGenerateGradleAndroidProject callbacks
+    durationTicks: 8021
+    depth: 2
+    messages: []
+  - stepName: Cloud Diagnostics Symbol Upload
+    durationTicks: 90
+    depth: 2
+    messages: []
+  - stepName: Building Gradle project
+    durationTicks: 99810844
+    depth: 2
+    messages: []
+  - stepName: Processing Mapping File
+    durationTicks: 653
+    depth: 2
+    messages: []
+  - stepName: Moving output package(s)
+    durationTicks: 226046
+    depth: 2
+    messages: []
+  m_Appendices:
+  - {fileID: 7563141823680466171}
+  - {fileID: -282821322688731135}
+  - {fileID: -7678351385152021384}
+  - {fileID: -2372806553210870767}
+--- !u!114 &7563141823680466171
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13803, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetRequirements:
+    minSdkVersion: 22
+    glesMinVersion: 196608
+    openGLRequireES31AEP: 0
+    vulkanMinVersion: 0
+    targetArchitectures: 5
+    requiresSystemPartitionInstallation: 0
+  outputPath: C:/Users/liux4/Documents/UnityProjects/UnityTinyFrameWork/Debug/TestAddressables.aab
+  buildOptions: 2359301
+  buildApkPerCpuArchitecture: 0
+  buildAppBundle: 1
+  splitMode: 0
+  targetArchitectures: 1
+  versionCode: 1
+  packageName: com.DefaultCompany.UnityTinyFrameWork
+  safeProductName: UnityTinyFrameWork
+  activityWithIntent: com.unity3d.player.UnityPlayerActivity
+  stagingArea: Temp/StagingArea
+  patchPackage: 0

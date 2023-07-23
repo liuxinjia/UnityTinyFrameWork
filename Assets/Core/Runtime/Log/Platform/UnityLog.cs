@@ -49,31 +49,31 @@ namespace Cr7Sund.Logger
             //unity主线程默认为1
             if (System.Threading.Thread.CurrentThread.ManagedThreadId != 1)
             {
-                switch (level)
+                color = level switch
                 {
-                    case LogLevel.Trace: color = _colors["log trace"]; break;
-                    case LogLevel.Debug: color = _colors["log debug"]; break;
-                    case LogLevel.Info: color = _colors["log info"]; break;
-                    case LogLevel.Warn: color = _colors["log warn"]; break;
-                    case LogLevel.Error: color = _colors["log error"]; break;
-                    case LogLevel.Fatal: color = _colors["log fatal"]; break;
-                    case LogLevel.Event: color = _colors["log event"]; break;
-                    default: color = Color.white; break;
-                }
+                    LogLevel.Trace => _colors["log trace"],
+                    LogLevel.Debug => _colors["log debug"],
+                    LogLevel.Info => _colors["log info"],
+                    LogLevel.Warn => _colors["log warn"],
+                    LogLevel.Error => _colors["log error"],
+                    LogLevel.Fatal => _colors["log fatal"],
+                    LogLevel.Event => _colors["log event"],
+                    _ => (Color32)Color.white,
+                };
             }
             else
             {
-                switch (level)
+                color = level switch
                 {
-                    case LogLevel.Trace: color = GetLocalColor("log trace", Color.white); break;
-                    case LogLevel.Debug: color = GetLocalColor("log debug", LogColorHelp.HexToColor(0xFF8428D9)); break;
-                    case LogLevel.Info: color = GetLocalColor("log info", LogColorHelp.HexToColor(0xFF0E42BC)); break;
-                    case LogLevel.Warn: color = GetLocalColor("log warn", LogColorHelp.HexToColor(0xFFFFFF00)); break;
-                    case LogLevel.Error: color = GetLocalColor("log error", LogColorHelp.HexToColor(0xFFFF0000)); break;
-                    case LogLevel.Fatal: color = GetLocalColor("log fatal", LogColorHelp.HexToColor(0xFFF000FF)); break;
-                    case LogLevel.Event: color = GetLocalColor("log event", Color.white); break;
-                    default: color = Color.white; break;
-                }
+                    LogLevel.Trace => GetLocalColor("log trace", Color.white),
+                    LogLevel.Debug => GetLocalColor("log debug", LogColorHelp.HexToColor(0xFF8428D9)),
+                    LogLevel.Info => GetLocalColor("log info", LogColorHelp.HexToColor(0xFF0E42BC)),
+                    LogLevel.Warn => GetLocalColor("log warn", LogColorHelp.HexToColor(0xFFFFFF00)),
+                    LogLevel.Error => GetLocalColor("log error", LogColorHelp.HexToColor(0xFFFF0000)),
+                    LogLevel.Fatal => GetLocalColor("log fatal", LogColorHelp.HexToColor(0xFFF000FF)),
+                    LogLevel.Event => GetLocalColor("log event", Color.white),
+                    _ => (Color32)Color.white,
+                };
             }
 
             return string.Format("<color=#{0}>{1}</color>", LogColorHelp.ColorToHex(color), msg);
@@ -89,6 +89,10 @@ namespace Cr7Sund.Logger
         public void Initialize()
         {
 
+        }
+
+        public void Dispose()
+        {
         }
     }
 }

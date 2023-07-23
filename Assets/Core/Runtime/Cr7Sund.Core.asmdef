@@ -1,3 +1,18 @@
 {
-	"name": "Cr7Sund.Core"
+    "name": "Cr7Sund.Core",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8115196194fe8c24d9712ae8127af0f9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "ZstdNet.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

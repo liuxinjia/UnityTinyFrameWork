@@ -8,7 +8,7 @@ namespace Cr7Sund
     public static class Log
     {
         private static ILog _log;
-        private static ILog log => _log ?? (_log = LogCreator.Create());
+        private static ILog log => _log ??= LogCreator.Create();
 
         #region utility
 
