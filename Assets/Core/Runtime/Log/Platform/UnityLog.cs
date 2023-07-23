@@ -79,10 +79,12 @@ namespace Cr7Sund.Logger
             return string.Format("<color=#{0}>{1}</color>", LogColorHelp.ColorToHex(color), msg);
         }
 
-        public string Format(LogLevel level, string format, params object[] args)
+        public string Format(LogLevel level, LogChannel logChannel, string format, params object[] args)
         {
             string result = LogFormatUtility.Format(format, args);
-            result = DecorateColor(level, string.Format("[{0}] {1}", level, result));
+            string logMessage = string.Format("[{0}][{1}]{2}", level, logChannel, result);
+
+            result = DecorateColor(level, logMessage);
             return result;
         }
 

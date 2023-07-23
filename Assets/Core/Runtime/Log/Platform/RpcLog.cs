@@ -13,10 +13,10 @@ namespace Cr7Sund.Logger
     {
         private LogServer server;
 
-        public string Format(LogLevel level, string format, params object[] args)
+        public string Format(LogLevel level, LogChannel logChannel, string format, params object[] args)
         {
             string result = LogFormatUtility.Format(format, args);
-            string logMessage = string.Format("[{0}]{1}", level, result);
+            string logMessage = string.Format("[{0}][{1}]{2}", level, logChannel, result);
 
             var st = new StackTrace();
             WriteToDevice(logMessage, st.ToString(), level);

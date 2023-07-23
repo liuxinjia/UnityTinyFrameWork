@@ -67,5 +67,11 @@ namespace Cr7Sund.Logger
         /// Animation logs
         /// </summary>
         Animation = 1 << 14,
+        /// <summary>
+        /// Assets logs
+        /// </summary>
+        Assets = 1 << 15,
+
+        Undefine = 1 << 20
     }
 }
